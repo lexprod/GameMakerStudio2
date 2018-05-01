@@ -15,7 +15,8 @@ if keyboard_check_pressed(vk_shift){
 if editing then {
 	//do we want to switch types?
 	if mouse_check_button_pressed(mb_right) {
-		currenttype = (currenttype + 1) mod numtypes
+		currenttype = (currenttype + 1) mod maxtypes
+		currentchoice = 0
 	}
 	//is the mouse in the garden area?
 	if mouse_x >= x and mouse_x <= x+gardenpixelw and mouse_y >= y and mouse_y <= y+gardenpixelh {
@@ -46,11 +47,7 @@ if editing then {
 					todelete = instance_position(mouse_x, mouse_y, all)
 					instance_destroy(todelete)
 				}
-				/*var tempnum = 0
-				for (i = 0 ; i < currenttype ; i++) {
-					//add the number of the previous type
-					tempnum = tempnum + typesArray[i]
-				}*/
+				
 				//new numbering system...
 				//we use currentchoice - 1 because the delete option
 				var tempnum = (currenttype * maxchoices) + (currentchoice - 1)
@@ -80,6 +77,7 @@ if editing then {
 				
 			}
 		}
+		//are you in the pallett?
 		if mouse_x >= typex and mouse_x <= typex + 64*(typesArray[currenttype]+1)  and mouse_y >= typey and mouse_y <= typey + 64 {
 				//find out which choice we're over and assign it
 				currentchoice = (mouse_x - typex) div 64 

@@ -17,10 +17,12 @@ hedgetypes = sprite_get_number(sHedge)
 tileYPtypes = 2 //dont count all the sprites since they animate
 tileStartYTypes = sprite_get_number(sStartY)
 tileEndYTypes = sprite_get_number(sEndY)
+mudTypes = sprite_get_number(sMud)
 
 
 
 //I only use this array in 3 spots... I can probably gather the same info from the mega array I build
+typesArray[6]= mudTypes
 typesArray[5]= tileEndYTypes
 typesArray[4]= tileStartYTypes
 typesArray[3]= tileYPtypes
@@ -48,18 +50,27 @@ enum objType {
 	hedges,
 	YPtiles,
 	Ystarts,
-	Yends
+	Yends,
+	mud
 }
 
-maxtypes = 6
+maxtypes = 7
 maxchoices = 8
 
 //initializing the current size of the array
 //right now we have 6 (6-1=5) types and assume a max 8 (8-1=7) choices
 //so there need to be = 0-47 rows
+
+//we're just gonna fill it with -1
 gardenObjects[((maxtypes)*(maxchoices))-1,4] = -1
+for (a=0;a<maxtypes;a++) {
+	for (b=0;b<maxchoices;b++){
+		for (c=0;c<5;c++){
+			gardenObjects[a*maxchoices +b,c] = -1 
+		}
+	}
+}
 //there we made it big
-show_debug_message(string(gardenObjects[47,4]))
 
 //alright, type 0 is flowers
 for (i = 0; i < sprite_get_number(sFlowers); i ++) {
@@ -152,6 +163,21 @@ for (i = 0; i < sprite_get_number(sEndY); i ++) {
 	gardenObjects[objType.Yends*maxchoices + i,4] = -1
 }
 
+
+//type 6 is mud test
+for (i = 0; i < sprite_get_number(sMud); i ++) {
+	//obj
+	gardenObjects[objType.mud*maxchoices + i,0] = oGardenObj
+	//sprite
+	gardenObjects[objType.mud*maxchoices + i,1] = sMud
+	//subimaGE
+	gardenObjects[objType.mud*maxchoices + i,2] = i
+	//optinoals
+	gardenObjects[objType.mud*maxchoices + i,3] = -1
+	gardenObjects[objType.mud*maxchoices + i,4] = -1
+}
+
+
 /*show_debug_message("A:"+string(gardenObjects[0,1]))
 show_debug_message("B:"+string(gardenObjects[8,2]))
 show_debug_message("C:"+string(gardenObjects[24,3]))
@@ -165,7 +191,6 @@ typey = y-80
 
 //current assignable category, 0= flowers, 1 = stones
 currenttype = 0
-numtypes = 7
 //each subimage, but 0 in either set is del types
 currentchoice = 0
 

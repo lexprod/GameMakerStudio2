@@ -14,21 +14,7 @@ if (file_exists("gardensave.sav")) {
 			//show_debug_message(string(loadthing))
 			if loadthing > -1 {
 				//hey this is a real thing, lets make that instance!
-				/* old
-				//backsolve the number
-				var tempchoice = 0
-				var temptype = 0
-				//is it just n < loadthing?
-				for (n = 1 ; n < loadthing ; n++) {
-					//add the number of the previous type
-					tempchoice = tempchoice + 1
-					if tempchoice == typesArray[temptype] {
-						tempchoice = 0
-						temptype = temptype + 1
-					}
-				}
-				show_debug_message("I'm trying to do " + string(temptype) + "times " + string(maxchoices) + "plus " + string(tempchoice))
-				*/
+				
 				var tempnum = loadthing 
 				//create the new style number
 				//now tee up the variables needed

@@ -487,6 +487,14 @@
             }
         },
         {
+            "Key": "ee631216-08e3-423e-b345-0068aba04e95",
+            "Value": {
+                "id": "f04cb821-ecbd-458f-b722-9ca0f87bb54d",
+                "resourcePath": "sprites\\sMud\\sMud.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f3b095ad-d9fe-4ad3-87aa-b6732400ecf6",
             "Value": {
                 "id": "9cf89617-34d5-4e02-8ce1-692d132280e9",

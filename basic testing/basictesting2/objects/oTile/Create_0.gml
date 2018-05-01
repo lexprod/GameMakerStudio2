@@ -1,16 +1,6 @@
 /// @description setting up enum?
 // You can write your code in this editor
 
-enum TILE_TYPE {
-	//first letter is top tile color
-	YP,
-	PY,
-	OP,
-	PO,
-	YO,
-	OY
-}
-
 enum TILE_STATE {
 	IDLE,
 	FLIPPING	

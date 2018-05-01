@@ -46,73 +46,43 @@ if editing then {
 					todelete = instance_position(mouse_x, mouse_y, all)
 					instance_destroy(todelete)
 				}
-				var tempnum = 0
+				/*var tempnum = 0
 				for (i = 0 ; i < currenttype ; i++) {
 					//add the number of the previous type
 					tempnum = tempnum + typesArray[i]
-				}
-				garden[OverX,OverY] = tempnum + currentchoice
-				//show_debug_message("I'm a " +string(tempnum + currentchoice))
-				//logged in array, now spawn an obj
-				switch currenttype {
-					case 0:
-						spawnsprite = sFlowers;
-						break;
-					case 1:
-						spawnsprite = sStones;
-						break;
-					case 2:
-						spawnsprite = sStatues;
-						break;
-					case 3:
-						spawnsprite = sHedge;
-						break;
-					case 4:
-						spawnsprite = sTileYP
-						break;
-					case 5:
-						spawnsprite = sStartY;
-						break;
-					case 6:
-						spawnsprite = sEndY;
-						break;
-				}
+				}*/
+				//new numbering system...
+				//we use currentchoice - 1 because the delete option
+				var tempnum = (currenttype * maxchoices) + (currentchoice - 1)
 				
-				//ok we know which type of sprite and which subimage, let's build
-				//is it a tile??
-				if currenttype == 4 {
-					spawnobj = instance_create_layer(mouse_x-(mouse_x mod 64),mouse_y-(mouse_y mod 64), "Instances", oTile)
-					//is it updside down???
-					if currentchoice -1 == 1 {
-						with spawnobj {
-							//pink on top
-							topcolor = "P"
-							bottomcolor = "Y"
-							mytileimage = 1
-						}
+				garden[OverX,OverY] = tempnum
+				//create the new style number
+				//now tee up the variables needed
+				var tempobj = gardenObjects[tempnum,0]
+				var tempsprite = gardenObjects[tempnum,1]
+				var tempsubimage = gardenObjects[tempnum,2]
+				//now check if we need a top and bottom stat
+				if tempobj = oTile {
+					var temptop = gardenObjects[tempnum,3]
+					var tempbottom = gardenObjects[tempnum,4]
+				}
+				//now create the new instance
+				var newinst = instance_create_layer(mouse_x-(mouse_x mod 64),mouse_y-(mouse_y mod 64),"Instances",tempobj)
+				with newinst {
+					sprite_index = tempsprite	
+					image_index = tempsubimage
+					if tempobj = oTile {
+						mytileimage = tempsubimage
+						topcolor = temptop
+						bottomcolor = tempbottom
 					}
-				} else if currenttype == 5 {
-					spawnobj = instance_create_layer(mouse_x-(mouse_x mod 64),mouse_y-(mouse_y mod 64), "Instances", oStartY)
-				} else if currenttype == 6 {
-					spawnobj = instance_create_layer(mouse_x-(mouse_x mod 64),mouse_y-(mouse_y mod 64), "Instances", oEndY)
-				} else {
-					spawnobj = instance_create_layer(mouse_x-(mouse_x mod 64),mouse_y-(mouse_y mod 64), "Instances", oGardenObj)
-				}
-				with spawnobj {
-					
-					sprite_index = other.spawnsprite
-							
-					image_index = (other.currentchoice - 1) //because 0 is delete
-				}
+				}	
+				
 			}
 		}
-		//is the mouse over the palette?
-		
 		if mouse_x >= typex and mouse_x <= typex + 64*(typesArray[currenttype]+1)  and mouse_y >= typey and mouse_y <= typey + 64 {
-			//find out which choice we're over and assign it
-			currentchoice = (mouse_x - typex) div 64 
-			
-			
+				//find out which choice we're over and assign it
+				currentchoice = (mouse_x - typex) div 64 
 		}
 	}
 } else {

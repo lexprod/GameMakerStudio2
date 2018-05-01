@@ -18,14 +18,146 @@ tileYPtypes = 2 //dont count all the sprites since they animate
 tileStartYTypes = sprite_get_number(sStartY)
 tileEndYTypes = sprite_get_number(sEndY)
 
-typesArray[6]= tileEndYTypes
-typesArray[5]= tileStartYTypes
-typesArray[4]= tileYPtypes
-typesArray[3]= hedgetypes
-typesArray[2]= statuetypes
-typesArray[1]= stonetypes
+
+
+//I only use this array in 3 spots... I can probably gather the same info from the mega array I build
+typesArray[5]= tileEndYTypes
+typesArray[4]= tileStartYTypes
+typesArray[3]= tileYPtypes
+typesArray[2]= hedgetypes
+typesArray[1]= statuetypes
 typesArray[0]= flowertypes
 
+//also starting now, stone types are out, eff em
+
+//I want to make a 2d array with [object number, property] as the coordinates
+//the object number is determined by multiplying the type numer by the max possible choices (8??) 
+//and basically just backsolving for a single number
+//like an object thats type 2 choice 1, would be 2*7 + 1 = 15
+//then in the array, at row 17 would be the main properties across
+//[n,0] is object, [n,1] is sprite, [n,2] is subimage, and [n,3] [n,4] are optional addl properties
+//example gardenObjects[0,0] = oGardenObj
+// gardenObjects[0,1] = sFlowers
+//and i just update this array for each item type i want in the levels
+//.....we're ignoring having two things on top of each other at the start of the level....
+//we may never do that just for my sanity, who knows, maybe a second layer array will become a thing
+
+enum objType {
+	flowers,
+	statues,
+	hedges,
+	YPtiles,
+	Ystarts,
+	Yends
+}
+
+maxtypes = 6
+maxchoices = 8
+
+//initializing the current size of the array
+//right now we have 6 (6-1=5) types and assume a max 8 (8-1=7) choices
+//so there need to be = 0-47 rows
+gardenObjects[((maxtypes)*(maxchoices))-1,4] = -1
+//there we made it big
+show_debug_message(string(gardenObjects[47,4]))
+
+//alright, type 0 is flowers
+for (i = 0; i < sprite_get_number(sFlowers); i ++) {
+	//obj
+	gardenObjects[objType.flowers*maxchoices + i,0] = oGardenObj
+	//sprite
+	gardenObjects[objType.flowers*maxchoices + i,1] = sFlowers
+	//subimaGE
+	gardenObjects[objType.flowers*maxchoices + i,2] = i
+	//optinoals
+	gardenObjects[objType.flowers*maxchoices + i,3] = -1
+	gardenObjects[objType.flowers*maxchoices + i,4] = -1
+}
+
+//type 1 is statues
+
+for (i = 0; i < sprite_get_number(sStatues); i ++) {
+	//obj
+	gardenObjects[objType.statues*maxchoices + i,0] = oGardenObj
+	//sprite
+	gardenObjects[objType.statues*maxchoices + i,1] = sStatues
+	//subimaGE
+	gardenObjects[objType.statues*maxchoices + i,2] = i
+	//optinoals
+	gardenObjects[objType.statues*maxchoices + i,3] = -1
+	gardenObjects[objType.statues*maxchoices + i,4] = -1
+}
+
+//type 2 is hedges
+
+for (i = 0; i < sprite_get_number(sHedge); i ++) {
+	//obj
+	gardenObjects[objType.hedges*maxchoices + i,0] = oGardenObj
+	//sprite
+	gardenObjects[objType.hedges*maxchoices + i,1] = sHedge
+	//subimaGE
+	gardenObjects[objType.hedges*maxchoices + i,2] = i
+	//optinoals
+	gardenObjects[objType.hedges*maxchoices + i,3] = -1
+	gardenObjects[objType.hedges*maxchoices + i,4] = -1
+}
+
+
+//type 3 is yellow/pink tiles
+//this has to be done one at a time manually to be safe
+gardenObjects[objType.YPtiles*maxchoices + 0,0] = oTile
+gardenObjects[objType.YPtiles*maxchoices + 0,1] = sTileYP
+gardenObjects[objType.YPtiles*maxchoices + 0,2] = 0
+//top color
+gardenObjects[objType.YPtiles*maxchoices + 0,3] = "Y"
+//bottom color
+gardenObjects[objType.YPtiles*maxchoices + 0,4] = "P"
+
+//pink up tile
+gardenObjects[objType.YPtiles*maxchoices + 1,0] = oTile
+gardenObjects[objType.YPtiles*maxchoices + 1,1] = sTileYP
+gardenObjects[objType.YPtiles*maxchoices + 1,2] = 1
+//top color
+gardenObjects[objType.YPtiles*maxchoices + 1,3] = "P"
+//bottom color
+gardenObjects[objType.YPtiles*maxchoices + 1,4] = "Y"
+
+
+
+
+//type 4 is y/p starts
+for (i = 0; i < sprite_get_number(sStartY); i ++) {
+	//obj
+	gardenObjects[objType.Ystarts*maxchoices + i,0] = oStartY
+	//sprite
+	gardenObjects[objType.Ystarts*maxchoices + i,1] = sStartY
+	//subimaGE
+	gardenObjects[objType.Ystarts*maxchoices + i,2] = i
+	//optinoals
+	gardenObjects[objType.Ystarts*maxchoices + i,3] = -1
+	gardenObjects[objType.Ystarts*maxchoices + i,4] = -1
+}
+
+
+//type 5 is y/p ends
+for (i = 0; i < sprite_get_number(sEndY); i ++) {
+	//obj
+	gardenObjects[objType.Yends*maxchoices + i,0] = oEndY
+	//sprite
+	gardenObjects[objType.Yends*maxchoices + i,1] = sEndY
+	//subimaGE
+	gardenObjects[objType.Yends*maxchoices + i,2] = i
+	//optinoals
+	gardenObjects[objType.Yends*maxchoices + i,3] = -1
+	gardenObjects[objType.Yends*maxchoices + i,4] = -1
+}
+
+/*show_debug_message("A:"+string(gardenObjects[0,1]))
+show_debug_message("B:"+string(gardenObjects[8,2]))
+show_debug_message("C:"+string(gardenObjects[24,3]))
+show_debug_message("D:"+string(gardenObjects[25,3]))*/
+
+//ok feels good, now to use this object
 
 //the type choice zone palette area
 typex = x+24

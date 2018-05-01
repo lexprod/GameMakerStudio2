@@ -11,7 +11,7 @@ draw_sprite(sprite_index,mytileimage,x,y)
 
 
 //debug show me your color top and bottom
-draw_set_color(c_black)
+/*draw_set_color(c_black)
 draw_set_font(fBasic)
 draw_text(x,y,string(topcolor))
-draw_text(x,y+32,string(bottomcolor))
+draw_text(x,y+32,string(bottomcolor))*/

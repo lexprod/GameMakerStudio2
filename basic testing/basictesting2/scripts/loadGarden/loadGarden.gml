@@ -4,6 +4,10 @@
 if (file_exists("gardensave.sav")) {
 	ini_open("gardensave.sav")
 	
+	//hey lets check the garden size
+	gardenwidth = ini_read_real("gardensize","width",1)
+	gardenheight = ini_read_real("gardensize","height",1)
+	
 		//loops through the whole dang grid and make a garden
 	for (i = 0; i < gardenheight; i++;) {
 		for (j = 0; j < gardenwidth; j++;) {

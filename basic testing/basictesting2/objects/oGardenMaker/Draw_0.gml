@@ -24,31 +24,6 @@ if mouseOver = true {
 		var tempdrawsprite = gardenObjects[tempn,1]
 		var tempdrawsub = gardenObjects[tempn,2]
 		draw_sprite(tempdrawsprite,tempdrawsub,mouse_x-(mouse_x mod gridsize),mouse_y-(mouse_y mod gridsize));
-		//case 0:
-		//	//flowers
-		//	draw_sprite(sFlowers,currentchoice-1,mouse_x-(mouse_x mod gridsize),mouse_y-(mouse_y mod gridsize));
-		//	break;
-		
-		//case 1:
-		////statues
-		//	draw_sprite(sStatues,currentchoice-1,mouse_x-(mouse_x mod gridsize),mouse_y-(mouse_y mod gridsize));
-		//	break;
-		//case 2:
-		//	//hedge
-		//	draw_sprite(sHedge,currentchoice-1,mouse_x-(mouse_x mod gridsize),mouse_y-(mouse_y mod gridsize));
-		//	break;
-		//case 3:
-		//	//tilesyup
-		//	draw_sprite(sTileYP,currentchoice-1,mouse_x-(mouse_x mod gridsize),mouse_y-(mouse_y mod gridsize));
-		//	break;
-		//case 4:
-		//	//tilestarty
-		//	draw_sprite(sStartY,currentchoice-1,mouse_x-(mouse_x mod gridsize),mouse_y-(mouse_y mod gridsize));
-		//	break;
-		//case 5:
-		//	//tilesendy
-		//	draw_sprite(sEndY,currentchoice-1,mouse_x-(mouse_x mod gridsize),mouse_y-(mouse_y mod gridsize));
-		//	break;
 	}
 }
 
@@ -74,67 +49,6 @@ if editing {
 		}
 	}
 }
-	//} else if currenttype = 1 {
-	//	//statues
-	//		draw_rectangle(typex-10,typey-10,typex+(gridsize*(statuetypes+1))+10,typey+gridsize+10,false)
-	//	draw_set_alpha(1)
-	//	for (i = 0; i < statuetypes+1; i++) {
-	//		//above the grid ugh maybe this should be its own object? nah
-	//		if i = 0 {
-	//			draw_sprite(sDelete,i,typex+(i*gridsize), typey)
-	//		} else {
-	//			draw_sprite(sStatues,i-1,typex+(i*gridsize), typey)
-	//		}
-	//	}
-	//} else if currenttype = 2 {
-	//	//statues
-	//		draw_rectangle(typex-10,typey-10,typex+(gridsize*(hedgetypes+1))+10,typey+gridsize+10,false)
-	//	draw_set_alpha(1)
-	//	for (i = 0; i < hedgetypes+1; i++) {
-	//		//above the grid ugh maybe this should be its own object? nah
-	//		if i = 0 {
-	//			draw_sprite(sDelete,i,typex+(i*gridsize), typey)
-	//		} else {
-	//			draw_sprite(sHedge,i-1,typex+(i*gridsize), typey)
-	//		}
-	//	}
-	//} else if currenttype = 3 {
-	//	//otiles YP
-	//		draw_rectangle(typex-10,typey-10,typex+(gridsize*(tileYPtypes+1))+10,typey+gridsize+10,false)
-	//	draw_set_alpha(1)
-	//	for (i = 0; i < tileYPtypes+1; i++) {
-	//		//above the grid ugh maybe this should be its own object? nah
-	//		if i = 0 {
-	//			draw_sprite(sDelete,i,typex+(i*gridsize), typey)
-	//		} else {
-	//			draw_sprite(sTileYP,i-1,typex+(i*gridsize), typey)
-	//		}
-	//	}
-	//}else if currenttype = 4 {
-	//	//otiles YP
-	//		draw_rectangle(typex-10,typey-10,typex+(gridsize*(tileStartYTypes+1))+10,typey+gridsize+10,false)
-	//	draw_set_alpha(1)
-	//	for (i = 0; i < tileStartYTypes+1; i++) {
-	//		//above the grid ugh maybe this should be its own object? nah
-	//		if i = 0 {
-	//			draw_sprite(sDelete,i,typex+(i*gridsize), typey)
-	//		} else {
-	//			draw_sprite(sStartY,i-1,typex+(i*gridsize), typey)
-	//		}
-	//	}
-	//}else if currenttype = 5 {
-	//	//otiles YP
-	//		draw_rectangle(typex-10,typey-10,typex+(gridsize*(tileEndYTypes+1))+10,typey+gridsize+10,false)
-	//	draw_set_alpha(1)
-	//	for (i = 0; i < tileEndYTypes+1; i++) {
-	//		//above the grid ugh maybe this should be its own object? nah
-	//		if i = 0 {
-	//			draw_sprite(sDelete,i,typex+(i*gridsize), typey)
-	//		} else {
-	//			draw_sprite(sEndY,i-1,typex+(i*gridsize), typey)
-	//		}
-	//	}
-	//}
 
 
 

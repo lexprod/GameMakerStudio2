@@ -1,11 +1,6 @@
 /// @description make garden array
 //array is x grid, ygrid, sprite index
 
-gardenwidth= 10
-gardenheight= 6
-
-gardenpixelw = gardenwidth*64
-gardenpixelh = gardenheight*64
 
 
 deletetypes = 1
@@ -177,12 +172,6 @@ for (i = 0; i < sprite_get_number(sMud); i ++) {
 	gardenObjects[objType.mud*maxchoices + i,4] = -1
 }
 
-
-/*show_debug_message("A:"+string(gardenObjects[0,1]))
-show_debug_message("B:"+string(gardenObjects[8,2]))
-show_debug_message("C:"+string(gardenObjects[24,3]))
-show_debug_message("D:"+string(gardenObjects[25,3]))*/
-
 //ok feels good, now to use this object
 
 //the type choice zone palette area
@@ -195,6 +184,17 @@ currenttype = 0
 currentchoice = 0
 
 
+if (file_exists("gardensave.sav")) {
+	ini_open("gardensave.sav")
+	
+	//hey lets check the garden size
+	gardenwidth = ini_read_real("gardensize","width",1)
+	gardenheight = ini_read_real("gardensize","height",1)
+	ini_close()
+}
+
+gardenpixelw = gardenwidth*64
+gardenpixelh = gardenheight*64
 
 //initialize thing with -1
 for (w = gardenwidth-1; w >= 0; w--) {

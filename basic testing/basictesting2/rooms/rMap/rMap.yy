@@ -16,7 +16,7 @@
     "layers": [
         {
             "__type": "GMRInstanceLayer_Model:#YoYoStudio.MVCFormat",
-            "name": "Goat",
+            "name": "goat",
             "id": "2a70f54b-dfd2-4fd5-a25e-06d5cbecd457",
             "depth": 0,
             "grid_x": 32,

@@ -27,5 +27,5 @@ rightx = x + gridsize
 upy = y - gridsize
 downy = y + gridsize
 
-
+layer_add_instance("goat",self)
 clearChoices()

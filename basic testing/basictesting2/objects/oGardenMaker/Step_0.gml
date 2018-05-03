@@ -83,6 +83,137 @@ if editing then {
 				currentchoice = (mouse_x - typex) div 64 
 		}
 	}
+	//ok also while editing, we can resize the grid/garden how we see fit
+	//when an arrow is pressed
+	//first let's try the up arrow to reduce rows
+	if keyboard_check_pressed(vk_up) {
+		//hey would this reduce the rows to 0? if so we should stop
+		//so make sure we currently have 2 or more rows
+		if gardenheight > 1 {
+			//the coast is clear! time to remove the last row of the array
+			//so first we make a clone of the original array
+			//initialize it
+			//a dirty double for loop to dump the one array into the other
+			for (w = gardenwidth-1; w >= 0; w--) {
+				for (h = gardenheight-1; h >= 0; h--) {
+					//cloning each entry
+					tempgarden[w,h] = garden[w,h]
+				}
+			}
+			//now we need to delete the original garden
+			garden = 0
+			//and rescope and build the garden array with its new size
+			gardenheight= gardenheight - 1
+			gardenpixelh = gardenheight*64
+			for (w = gardenwidth-1; w >= 0; w--) {
+				for (h = gardenheight-1; h >= 0; h--) {
+					//cloning the relevant entries, it will automatically skip the last h row
+					garden[w,h] = tempgarden[w,h]
+				}
+			}		
+			//delete the tempgarden array
+			tempgarden = 0
+		}	
+	}
+	if keyboard_check_pressed(vk_down) {
+		//would this bleed off the room map? if so we should stop
+		//so check if y + current pixel height + gridsize would fit in the room
+		if y + gardenpixelh + gridsize <= room_height {
+			//the coast is clear! time to add a row of the array
+			//so first we make a clone of the original array
+			//initialize it
+			//a dirty double for loop to dump the one array into the other
+			for (w = gardenwidth-1; w >= 0; w--) {
+				for (h = gardenheight-1; h >= 0; h--) {
+					//cloning each entry
+					tempgarden[w,h] = garden[w,h]
+				}
+			}
+			//now we need to delete the original garden
+			garden = 0
+			//and rescope and build the garden array with its new size
+			gardenheight= gardenheight + 1
+			gardenpixelh = gardenheight*64
+			for (w = gardenwidth-1; w >= 0; w--) {
+				for (h = gardenheight-1; h >= 0; h--) {
+					//first if we're on the final new row, we need to dump in new -1 vals
+					if h == (gardenheight - 1) {
+						garden[w,h] = -1
+					} else {
+						//cloning the relevant entries
+						garden[w,h] = tempgarden[w,h]
+					}
+				}
+			}		
+			//delete the tempgarden array
+			tempgarden = 0
+		}
+	}
+	//first let's try the left arrow to remove a column
+	if keyboard_check_pressed(vk_left) {
+		//hey would this reduce the columns to 0? if so we should stop
+		//so make sure we currently have 2 or more columns
+		if gardenwidth > 1 {
+			//the coast is clear! time to remove the last column of the array
+			//so first we make a clone of the original array
+			//initialize it
+			//a dirty double for loop to dump the one array into the other
+			for (w = gardenwidth-1; w >= 0; w--) {
+				for (h = gardenheight-1; h >= 0; h--) {
+					//cloning each entry
+					tempgarden[w,h] = garden[w,h]
+				}
+			}
+			//now we need to delete the original garden
+			garden = 0
+			//and rescope and build the garden array with its new size
+			gardenwidth= gardenwidth - 1
+			gardenpixelw = gardenwidth*gridsize
+			for (w = gardenwidth-1; w >= 0; w--) {
+				//this should automatically skip the last column "w"
+				for (h = gardenheight-1; h >= 0; h--) {
+					//cloning the relevant entries
+					garden[w,h] = tempgarden[w,h]
+				}
+			}		
+			//delete the tempgarden array
+			tempgarden = 0
+		}	
+	}
+	if keyboard_check_pressed(vk_right) {
+		//would this bleed off the room map? if so we should stop
+		//so check if x + current pixel width + gridsize would fit in the room
+		if x + gardenpixelw + gridsize <= room_width {
+			//the coast is clear! time to add a column of the array
+			//so first we make a clone of the original array
+			//initialize it
+			//a dirty double for loop to dump the one array into the other
+			for (w = gardenwidth-1; w >= 0; w--) {
+				for (h = gardenheight-1; h >= 0; h--) {
+					//cloning each entry
+					tempgarden[w,h] = garden[w,h]
+				}
+			}
+			//now we need to delete the original garden
+			garden = 0
+			//and rescope and build the garden array with its new size
+			gardenwidth= gardenwidth + 1
+			gardenpixelw = gardenwidth*64
+			for (w = gardenwidth-1; w >= 0; w--) {
+				for (h = gardenheight-1; h >= 0; h--) {
+					//if we're in the new final column, dump new -1 vals
+					if w == (gardenwidth-1) {
+						garden[w,h] = -1
+					} else {
+						//cloning the relevant entries
+						garden[w,h] = tempgarden[w,h]
+					}
+				}
+			}		
+			//delete the tempgarden array
+			tempgarden = 0
+		}
+	}
 } else {
 	mouseOver = false	
 }

@@ -2,7 +2,7 @@
 // 
 
 //before move check for obstacle, and if it is set mode to bumping
-if state = GOAT_STATE.IDLE {
+if state = GOAT_STATE.IDLE and oGardenMaker.editing == false{
 	if keyboard_check(vk_up) {
 		//targinst checks to see if there's an object in the way
 		targinst = instance_place(x,y-64,oGardenObj)

@@ -1,7 +1,8 @@
 /// @description tab to restrtys
 // You can write your code in this editor
 
-if keyboard_check_pressed(vk_tab) {game_restart()}
+if keyboard_check_pressed(vk_tab) {room_restart()}
+if keyboard_check_pressed(vk_escape) {game_end()}
 
 //dont turn on if we're editing
 if oGardenMaker.editing == false {
@@ -136,4 +137,34 @@ if oGardenMaker.editing == false {
 } else {
 	ds_list_clear(yTilePathList)
 }
+
+
+
+//ok so what if you are in charge of goat going through gates
+
+/// @description warp on open gates
+// You can write your code in this editor
+//wait until goat is done moving??
+if collision_point(oGoat.x,oGoat.y,oGate,false,false) and oGoat.state = GOAT_STATE.IDLE{
+	//show_debug_message("I touched a gate")
+	gatecol = instance_position(oGoat.x,oGoat.y,oGate)
+	//show_debug_message("my lock is" +string(gatecol.gatelocked) + " and my target room is " + string(gatecol.targetroomindex))
+	with (gatecol) {
+		//show_debug_message("checking lock")
+		if gatelocked == false {
+		//if its unlocked, GO
+		//show_debug_message("GO TO ROOM")
+		room_instance_add(targetroomindex,gridsize*2,gridsize*2,oGardenMaker)
+		room_instance_add(targetroomindex,gridsize*1,gridsize*1,oGoat)
+		room_goto(targetroomindex)
+		
+		} else {
+			//show_debug_message("its locked")
+		}
+	}
+	
+}
+
+
+
 

@@ -184,8 +184,11 @@ currenttype = 0
 currentchoice = 0
 
 
-if (file_exists("gardensave.sav")) {
-	ini_open("gardensave.sav")
+//ok so now we need to work on a map for all the level files
+
+
+if (file_exists("garden0.lvl")) {
+	ini_open("garden0.lvl")
 	
 	//hey lets check the garden size
 	gardenwidth = ini_read_real("gardensize","width",1)

@@ -2,7 +2,13 @@
 // You can write your code in this editor
 
 if keyboard_check_pressed(vk_tab) {room_restart()}
-if keyboard_check_pressed(vk_escape) {game_end()}
+if keyboard_check_pressed(vk_escape) {
+	if room == rMap {
+		game_end()
+	} else {
+		room_goto(rMap)
+	}
+}
 
 //dont turn on if we're editing
 if oGardenMaker.editing == false {
@@ -141,9 +147,6 @@ if oGardenMaker.editing == false {
 
 
 //ok so what if you are in charge of goat going through gates
-
-/// @description warp on open gates
-// You can write your code in this editor
 //wait until goat is done moving??
 if collision_point(oGoat.x,oGoat.y,oGate,false,false) and oGoat.state = GOAT_STATE.IDLE{
 	//show_debug_message("I touched a gate")
@@ -154,9 +157,16 @@ if collision_point(oGoat.x,oGoat.y,oGate,false,false) and oGoat.state = GOAT_STA
 		if gatelocked == false {
 		//if its unlocked, GO
 		//show_debug_message("GO TO ROOM")
-		room_instance_add(targetroomindex,gridsize*2,gridsize*2,oGardenMaker)
+		
+		//what if we just made it persistent?
+		//room_instance_add(targetroomindex,gridsize*2,gridsize*2,oGardenMaker)
+		
+		//this is to make sure you can still see the level editor in the room
+		//add that the goat wont start in the garden, with weird collision
 		room_instance_add(targetroomindex,gridsize*1,gridsize*1,oGoat)
+		//the goat will add itself to the goat layer
 		room_goto(targetroomindex)
+
 		
 		} else {
 			//show_debug_message("its locked")

@@ -32,11 +32,18 @@ if (file_exists(levelsavename)) {
 				var tempsubimage = gardenObjects[tempnum,2]
 				//now check if we need a top and bottom stat
 				if tempobj = oTile {
+					//assign the color states properly
 					var temptop = gardenObjects[tempnum,3]
 					var tempbottom = gardenObjects[tempnum,4]
+				} else if tempobj = oGate{
+					//check if open or shut
+					var glock = gardenObjects[tempnum,3]
 				}
 				//now create the new instance
 				var newinst = instance_create_layer(x+(j*gridsize), y+(i*gridsize),"Instances",tempobj)
+				if tempobj == oGoat {
+					show_debug_message("???????????")
+				}
 				with newinst {
 					sprite_index = tempsprite	
 					image_index = tempsubimage
@@ -44,6 +51,8 @@ if (file_exists(levelsavename)) {
 						mytileimage = tempsubimage
 						topcolor = temptop
 						bottomcolor = tempbottom
+					} else if tempobj = oGate {
+						gatelocked = glock
 					}
 				}
 			}
@@ -51,6 +60,26 @@ if (file_exists(levelsavename)) {
 	}
 	ini_close()
 }
+
+if !instance_exists(oGoat) {
+	instance_create_layer(gridsize*1,gridsize*1,"Goat",oGoat)
+}
+				//if the goat and a start tile exist, put the goat on it I guessss
+if instance_exists(oStartY) {
+	var goatfriend = instance_find(oGoat,0)
+	var start = instance_find(oStartY,0)
+	goatfriend.x = start.x
+	goatfriend.y = start.y
+	//we have to do these otherwise the first step is a MESS
+	goatfriend.targetx = start.x
+	goatfriend.targety = start.y
+	goatfriend.leftx = start.x-gridsize
+	goatfriend.rightx = start.x + gridsize
+	goatfriend.upy = start.y - gridsize
+	goatfriend.downy = start.y + gridsize
+	
+}
+
 
 
 

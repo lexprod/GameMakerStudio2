@@ -13,10 +13,12 @@ tileYPtypes = 2 //dont count all the sprites since they animate
 tileStartYTypes = sprite_get_number(sStartY)
 tileEndYTypes = sprite_get_number(sEndY)
 mudTypes = sprite_get_number(sMud)
+gateTypes = sprite_get_number(sGate)
 
 
 
 //I only use this array in 3 spots... I can probably gather the same info from the mega array I build
+typesArray[7]= gateTypes
 typesArray[6]= mudTypes
 typesArray[5]= tileEndYTypes
 typesArray[4]= tileStartYTypes
@@ -46,10 +48,11 @@ enum objType {
 	YPtiles,
 	Ystarts,
 	Yends,
-	mud
+	mud,
+	gates
 }
 
-maxtypes = 7
+maxtypes = 8 //0-8
 maxchoices = 8
 
 //initializing the current size of the array
@@ -172,6 +175,30 @@ for (i = 0; i < sprite_get_number(sMud); i ++) {
 	gardenObjects[objType.mud*maxchoices + i,4] = -1
 }
 
+//type 7 is gates
+//manual gate types
+//a closed
+	//obj
+	gardenObjects[objType.gates*maxchoices + 0,0] = oGate
+	//sprite
+	gardenObjects[objType.gates*maxchoices + 0,1] = sGate
+	//subimaGE
+	gardenObjects[objType.gates*maxchoices + 0,2] = 0
+	//gatelocked
+	gardenObjects[objType.gates*maxchoices + 0,3] = true
+	gardenObjects[objType.gates*maxchoices + 0,4] = -1
+	//an open gate
+	//obj
+	gardenObjects[objType.gates*maxchoices + 1,0] = oGate
+	//sprite
+	gardenObjects[objType.gates*maxchoices + 1,1] = sGate
+	//subimaGE
+	gardenObjects[objType.gates*maxchoices + 1,2] = 1
+	//gatelocked
+	gardenObjects[objType.gates*maxchoices + 1,3] = false
+	gardenObjects[objType.gates*maxchoices + 1,4] = -1
+
+
 //ok feels good, now to use this object
 
 //the type choice zone palette area
@@ -209,6 +236,8 @@ for (w = gardenwidth-1; w >= 0; w--) {
 
 //now load the garden....
 loadGarden()
+
+
 
 editing = false
 

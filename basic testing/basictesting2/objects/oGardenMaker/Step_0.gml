@@ -67,6 +67,8 @@ if editing then {
 				if tempobj = oTile {
 					var temptop = gardenObjects[tempnum,3]
 					var tempbottom = gardenObjects[tempnum,4]
+				} else if tempobj = oGate {
+					var glock = gardenObjects[tempnum,3]
 				}
 				//now create the new instance
 				var newinst = instance_create_layer(mouse_x-(mouse_x mod 64),mouse_y-(mouse_y mod 64),"Instances",tempobj)
@@ -77,6 +79,8 @@ if editing then {
 						mytileimage = tempsubimage
 						topcolor = temptop
 						bottomcolor = tempbottom
+					} else if tempobj = oGate {
+						gatelocked = glock
 					}
 				}	
 				
@@ -84,6 +88,7 @@ if editing then {
 		}
 		//are you in the pallett?
 		if mouse_x >= typex and mouse_x <= typex + 64*(typesArray[currenttype]+1)  and mouse_y >= typey and mouse_y <= typey + 64 {
+				
 				//find out which choice we're over and assign it
 				currentchoice = (mouse_x - typex) div 64 
 		}

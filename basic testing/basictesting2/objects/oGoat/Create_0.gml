@@ -1,6 +1,8 @@
 /// @description establish variables
 // You can write your code in this editor
 
+birthday = current_time
+show_debug_message(string(birthday))
 
 enum GOAT_STATE {
 	IDLE,
@@ -12,6 +14,8 @@ enum GOAT_STATE {
 }
 
 state = GOAT_STATE.IDLE
+
+
 targetx = x
 targety = y
 

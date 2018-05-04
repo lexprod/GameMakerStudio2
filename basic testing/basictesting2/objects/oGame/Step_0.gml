@@ -174,15 +174,15 @@ if instance_exists(oGoat) and collision_point(oGoat.x,oGoat.y,oGate,false,false)
 		//what if we just made it persistent?
 		//room_instance_add(targetroomindex,gridsize*2,gridsize*2,oGardenMaker)
 		
-		//this is to make sure you can still see the level editor in the room
-		//add that the goat wont start in the garden, with weird collision
-		room_instance_add(targetroomindex,gridsize*1,gridsize*1,oGoat)
-		//the goat will add itself to the goat layer
-		room_goto(targetroomindex)
+			//this is to make sure you can still see the level editor in the room
+			//add that the goat wont start in the garden, with weird collision
+			//the goat will add itself to the goat layer
+			room_goto(targetroomindex)
+			
 		
-		//unsolve the level
-		yPathComplete = false
-		levelComplete = false
+			//unsolve the level
+			yPathComplete = false
+			levelComplete = false
 
 		
 		} else {

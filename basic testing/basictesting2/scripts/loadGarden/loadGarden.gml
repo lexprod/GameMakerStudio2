@@ -41,6 +41,9 @@ if (file_exists(levelsavename)) {
 				}
 				//now create the new instance
 				var newinst = instance_create_layer(x+(j*gridsize), y+(i*gridsize),"Instances",tempobj)
+				if tempobj == oGoat {
+					show_debug_message("???????????")
+				}
 				with newinst {
 					sprite_index = tempsprite	
 					image_index = tempsubimage
@@ -58,8 +61,11 @@ if (file_exists(levelsavename)) {
 	ini_close()
 }
 
+if !instance_exists(oGoat) {
+	instance_create_layer(gridsize*1,gridsize*1,"Goat",oGoat)
+}
 				//if the goat and a start tile exist, put the goat on it I guessss
-if instance_exists(oStartY) and instance_exists(oGoat) {
+if instance_exists(oStartY) {
 	var goatfriend = instance_find(oGoat,0)
 	var start = instance_find(oStartY,0)
 	goatfriend.x = start.x
@@ -71,6 +77,7 @@ if instance_exists(oStartY) and instance_exists(oGoat) {
 	goatfriend.rightx = start.x + gridsize
 	goatfriend.upy = start.y - gridsize
 	goatfriend.downy = start.y + gridsize
+	
 }
 
 

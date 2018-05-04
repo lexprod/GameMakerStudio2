@@ -1,10 +1,17 @@
 //will save the garden grid to an ini
-if (file_exists("gardensave.sav")) {
-	file_delete("gardensave.sav")
+
+
+var levelsavename = "garden" + string(room) + ".lvl"
+
+
+if (file_exists(levelsavename)) {
+	file_delete(levelsavename)
 }
 
-ini_open("gardensave.sav")
+ini_open(levelsavename)
 
+//might as well label the room inside the file too?
+ini_write_real("garden name","room",room)
 //save the size
 ini_write_real("gardensize","width",gardenwidth)
 ini_write_real("gardensize","height",gardenheight)

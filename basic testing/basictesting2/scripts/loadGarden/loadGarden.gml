@@ -1,8 +1,13 @@
 //loads the garden from save
+show_debug_message("I'm laoding a garden in room "+ string(room))
+
+//based on the room we're loading, make that file save name
+
+var levelsavename = "garden" + string(room) + ".lvl"
 
 //will save the garden grid to an ini
-if (file_exists("gardensave.sav")) {
-	ini_open("gardensave.sav")
+if (file_exists(levelsavename)) {
+	ini_open(levelsavename)
 	
 	//hey lets check the garden size
 	gardenwidth = ini_read_real("gardensize","width",1)

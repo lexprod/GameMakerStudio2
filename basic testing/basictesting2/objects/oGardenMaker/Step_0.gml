@@ -1,6 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+//keep yourself in the instance layer
+if layer != "Instances" {
+	layer_add_instance("Instances",self)
+}
+
 if keyboard_check_pressed(vk_shift){
 	editing = not editing
 	currenttype = 0
@@ -38,7 +43,7 @@ if editing then {
 				//erase it with -1
 				garden[OverX,OverY] = -1
 				todelete = instance_position(mouse_x, mouse_y, all)
-				if todelete != noone {
+				if todelete != noone  {
 					instance_destroy(todelete)
 				}
 			} else {

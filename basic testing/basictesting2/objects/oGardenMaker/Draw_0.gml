@@ -1,6 +1,7 @@
 /// @description draw flowers
 // go through the whole array
 
+
 // instead of drawing sprites, we'll spawn obj
 if editing {
 	for (w = 0; w <gardenwidth; w++) {

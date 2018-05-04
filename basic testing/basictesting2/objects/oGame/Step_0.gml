@@ -2,6 +2,7 @@
 // You can write your code in this editor
 
 if keyboard_check_pressed(vk_tab) {room_restart()}
+if keyboard_check_pressed(vk_home) {game_restart()}
 if keyboard_check_pressed(vk_escape) {
 	if room == rMap {
 		game_end()
@@ -9,6 +10,8 @@ if keyboard_check_pressed(vk_escape) {
 		room_goto(rMap)
 	}
 }
+
+
 
 //dont turn on if we're editing
 if oGardenMaker.editing == false {
@@ -132,13 +135,23 @@ if oGardenMaker.editing == false {
 			//but we must check now that the player is at the end sooooooo
 			if collision_point(endTile.x,endTile.y,oGoat,false,true){
 				levelComplete = true
+				//open all the gates????
+				for ( n = 0; n < instance_number(oGate); n++)
+				{
+					var ngate = instance_find(oGate,n)
+					ngate.gatelocked = false
+				}
 			} else {
-				levelComplete = false
+				//we don't turn it off here, so that it will REMAIN open now that it's been solved. we'll have to do something to paste down the tiles I guess?
 			}
 			//maybe make states for oGame of solving, path complete, and on end? so we dont hmmm, nah we need to always check the path
 			//
 		}
 		// this part isnt working? or its resetting too fast....
+	} else {
+		//there's no start and end tile here, clear out the completion
+		yPathComplete = false
+		levelComplete = false
 	}
 } else {
 	ds_list_clear(yTilePathList)
@@ -148,7 +161,7 @@ if oGardenMaker.editing == false {
 
 //ok so what if you are in charge of goat going through gates
 //wait until goat is done moving??
-if collision_point(oGoat.x,oGoat.y,oGate,false,false) and oGoat.state = GOAT_STATE.IDLE{
+if instance_exists(oGoat) and collision_point(oGoat.x,oGoat.y,oGate,false,false) and oGoat.state = GOAT_STATE.IDLE{
 	//show_debug_message("I touched a gate")
 	gatecol = instance_position(oGoat.x,oGoat.y,oGate)
 	//show_debug_message("my lock is" +string(gatecol.gatelocked) + " and my target room is " + string(gatecol.targetroomindex))
@@ -166,6 +179,10 @@ if collision_point(oGoat.x,oGoat.y,oGate,false,false) and oGoat.state = GOAT_STA
 		room_instance_add(targetroomindex,gridsize*1,gridsize*1,oGoat)
 		//the goat will add itself to the goat layer
 		room_goto(targetroomindex)
+		
+		//unsolve the level
+		yPathComplete = false
+		levelComplete = false
 
 		
 		} else {

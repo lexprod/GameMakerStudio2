@@ -24,6 +24,7 @@ if mouseOver = true {
 		var tempn = (currenttype * maxchoices) + (currentchoice - 1)
 		var tempdrawsprite = gardenObjects[tempn,1]
 		var tempdrawsub = gardenObjects[tempn,2]
+		
 		draw_sprite(tempdrawsprite,tempdrawsub,mouse_x-(mouse_x mod gridsize),mouse_y-(mouse_y mod gridsize));
 	}
 }
@@ -45,6 +46,7 @@ if editing {
 				//well draw it
 				var dspr = gardenObjects[currenttype*maxchoices + (i-1),1]
 				var dsub = gardenObjects[currenttype*maxchoices + (i-1),2]
+
 				draw_sprite(dspr,dsub,typex+(i*gridsize), typey)
 			}
 		}

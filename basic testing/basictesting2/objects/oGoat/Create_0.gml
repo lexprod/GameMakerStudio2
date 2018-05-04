@@ -12,6 +12,8 @@ enum GOAT_STATE {
 }
 
 state = GOAT_STATE.IDLE
+
+
 targetx = x
 targety = y
 

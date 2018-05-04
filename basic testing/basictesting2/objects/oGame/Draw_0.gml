@@ -3,9 +3,11 @@
 
 if oGardenMaker.editing == false {
 //to test add a sPath sprite to each tile in path
-	for (b = 0; b < ds_list_size(yTilePathList); b++) {
-		var markedtile = ds_list_find_value(yTilePathList,b)
-		draw_sprite(sPath,0,markedtile.x,markedtile.y)
+if instance_exists(oStartY) and instance_exists(oEndY) {
+		for (b = 0; b < ds_list_size(yTilePathList); b++) {
+			var markedtile = ds_list_find_value(yTilePathList,b)
+			draw_sprite(sPath,0,markedtile.x,markedtile.y)
+		}
 	}
 }
 	

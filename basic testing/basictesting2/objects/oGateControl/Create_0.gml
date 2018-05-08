@@ -2,6 +2,9 @@
 // You can write your code in this editor
 
 //gate data goes x, y, room
+gatedata[3,2] = 4
+gatedata[3,1] = 0
+gatedata[3,0] = gridsize*4
 gatedata[2,2] = 3
 gatedata[2,1] = 0
 gatedata[2,0] = gridsize*3

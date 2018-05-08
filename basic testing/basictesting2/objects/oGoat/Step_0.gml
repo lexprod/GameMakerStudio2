@@ -5,38 +5,59 @@
 if state = GOAT_STATE.IDLE and oGardenMaker.editing == false{
 	if keyboard_check(vk_up) {
 		//targinst checks to see if there's an object in the way
-		targinst = instance_place(x,y-64,oGardenObj)
-		if targinst != noone and targinst.solidobj {
+		targobj = instance_place(x,y-64,oGardenObj) 
+		//check for a gate too
+		targgate = instance_place(x,y-64,oGate) 
+		if targobj != noone and targobj.solidobj {
 			//and if there is one, and its solid, then just bump in that dir
+			goatBump(x,y,-1,x,y-10)
+		} else if targgate != noone and targgate.solidobj {
 			goatBump(x,y,-1,x,y-10)
 		} else {
 			state = GOAT_STATE.MOVING
 			targety = y-64
 		}
 	} else if keyboard_check(vk_down) {
-		targinst = instance_place(x,y+64,oGardenObj)
-		if targinst != noone and targinst.solidobj {
+		//targinst checks to see if there's an object in the way
+		targobj = instance_place(x,y+64,oGardenObj) 
+		//check for a gate too
+		targgate = instance_place(x,y+64,oGate) 
+		if targobj != noone and targobj.solidobj {
+			//and if there is one, and its solid, then just bump in that dir
+			goatBump(x,y,1,x,y+10)
+		} else if targgate != noone and targgate.solidobj {
 			goatBump(x,y,1,x,y+10)
 		} else {
-		state = GOAT_STATE.MOVING
-		targety = y+64
+			state = GOAT_STATE.MOVING
+			targety = y+64
 		}
-		//MoveGrid(self.id,"down")
 	}else if keyboard_check(vk_left) {
-		targinst = instance_place(x-64,y,oGardenObj)
-		if targinst != noone and targinst.solidobj {
+		//targinst checks to see if there's an object in the way
+		targobj = instance_place(x-64,y,oGardenObj) 
+		//check for a gate too
+		targgate = instance_place(x-64,y,oGate) 
+		if targobj != noone and targobj.solidobj {
+			//and if there is one, and its solid, then just bump in that dir
+			goatBump(x,y,-1,x-10,y)
+		} else if targgate != noone and targgate.solidobj {
 			goatBump(x,y,-1,x-10,y)
 		} else {
-		state = GOAT_STATE.MOVING
-		targetx = x-64
+			state = GOAT_STATE.MOVING
+			targetx = x-64
 		}
 	} else if keyboard_check(vk_right) {
-		targinst = instance_place(x+64,y,oGardenObj)
-		if targinst != noone and targinst.solidobj {
+		//targinst checks to see if there's an object in the way
+		targobj = instance_place(x+64,y,oGardenObj) 
+		//check for a gate too
+		targgate = instance_place(x+64,y,oGate) 
+		if targobj != noone and targobj.solidobj {
+			//and if there is one, and its solid, then just bump in that dir
+			goatBump(x,y,1,x+10,y)
+		} else if targgate != noone and targgate.solidobj {
 			goatBump(x,y,1,x+10,y)
 		} else {
-		state = GOAT_STATE.MOVING
-		targetx = x+64
+			state = GOAT_STATE.MOVING
+			targetx = x+64
 		}
 	} else if keyboard_check_pressed(vk_space) {
 		state = GOAT_STATE.FLIPPING	

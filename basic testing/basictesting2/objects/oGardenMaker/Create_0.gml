@@ -6,20 +6,17 @@
 deletetypes = 1
 
 flowertypes = sprite_get_number(sFlowers)
-stonetypes = sprite_get_number(sStones)
 statuetypes = sprite_get_number(sStatues)
 hedgetypes = sprite_get_number(sHedge)
 tileYPtypes = 2 //dont count all the sprites since they animate
 tileStartYTypes = sprite_get_number(sStartY)
 tileEndYTypes = sprite_get_number(sEndY)
-mudTypes = sprite_get_number(sMud)
 gateTypes = sprite_get_number(sGate)
 
 
 
 //I only use this array in 3 spots... I can probably gather the same info from the mega array I build
-typesArray[7]= gateTypes
-typesArray[6]= mudTypes
+typesArray[6]= gateTypes
 typesArray[5]= tileEndYTypes
 typesArray[4]= tileStartYTypes
 typesArray[3]= tileYPtypes
@@ -48,11 +45,10 @@ enum objType {
 	YPtiles,
 	Ystarts,
 	Yends,
-	mud,
 	gates
 }
 
-maxtypes = 8 //0-8
+maxtypes = 7 //0-8
 maxchoices = 8
 
 //initializing the current size of the array
@@ -162,20 +158,7 @@ for (i = 0; i < sprite_get_number(sEndY); i ++) {
 }
 
 
-//type 6 is mud test
-for (i = 0; i < sprite_get_number(sMud); i ++) {
-	//obj
-	gardenObjects[objType.mud*maxchoices + i,0] = oGardenObj
-	//sprite
-	gardenObjects[objType.mud*maxchoices + i,1] = sMud
-	//subimaGE
-	gardenObjects[objType.mud*maxchoices + i,2] = i
-	//optinoals
-	gardenObjects[objType.mud*maxchoices + i,3] = -1
-	gardenObjects[objType.mud*maxchoices + i,4] = -1
-}
-
-//type 7 is gates
+//type 6 is gates
 //manual gate types
 //a closed
 	//obj
@@ -221,6 +204,9 @@ if (file_exists("garden0.lvl")) {
 	gardenwidth = ini_read_real("gardensize","width",1)
 	gardenheight = ini_read_real("gardensize","height",1)
 	ini_close()
+} else {
+	gardenwidth = 1
+	gardenheight = 1
 }
 
 gardenpixelw = gardenwidth*64
@@ -235,7 +221,7 @@ for (w = gardenwidth-1; w >= 0; w--) {
 }
 
 //now load the garden....
-loadGarden()
+// the room code does this now, so dont? loadGarden()
 
 
 

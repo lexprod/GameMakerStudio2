@@ -221,7 +221,7 @@ for (w = gardenwidth-1; w >= 0; w--) {
 }
 
 //now load the garden....
-loadGarden()
+// the room code does this now, so dont? loadGarden()
 
 
 

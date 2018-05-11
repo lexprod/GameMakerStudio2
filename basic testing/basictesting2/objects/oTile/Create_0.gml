@@ -3,23 +3,26 @@
 
 enum TILE_STATE {
 	IDLE,
-	FLIPPING	
+	STARTFLIP,
+	ENDFLIP
 }
 
-mytileimage = image_index
+
 mystate = TILE_STATE.IDLE
 
-animationframes = 12
+
+HalfFrame = 3
+negHalfFrame = 2
 
 flipx = x
 flipy = y
 
-leftx = x-gridsize
-rightx = x + gridsize
-upy = y - gridsize
-downy = y + gridsize
+//leftx = x-gridsize
+//rightx = x + gridsize
+//upy = y - gridsize
+//downy = y + gridsize
 
-flipimages = ds_queue_create();
+//flipimages = ds_queue_create();
 
 if image_index == 0 {
 	topcolor = "Y"
@@ -28,4 +31,5 @@ if image_index == 0 {
 	topcolor = "P"
 	bottomcolor = "Y"
 }
+
 

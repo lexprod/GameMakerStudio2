@@ -15,6 +15,13 @@ if keyboard_check_pressed(vk_shift){
 	saveGarden();
 }
 
+//here's also a test to through save stuff in, using F2 and load f3
+if keyboard_check_pressed(vk_f2) {
+	saveRoom()
+} else if keyboard_check_pressed(vk_f3) {
+	loadRoom()
+}
+
 
 //first of all, only do ANYTHING if editing is true
 if editing then {
@@ -87,7 +94,7 @@ if editing then {
 			}
 		}
 		//are you in the pallett?
-		if mouse_x >= typex and mouse_x <= typex + 64*(typesArray[currenttype]+1)  and mouse_y >= typey and mouse_y <= typey + 64 {
+		if mouse_x >= typex and mouse_x <= typex+(gridsize*(maxchoices))  and mouse_y >= typey and mouse_y <= typey + 64 {
 				
 				//find out which choice we're over and assign it
 				currentchoice = (mouse_x - typex) div 64 

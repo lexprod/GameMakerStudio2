@@ -82,6 +82,8 @@ if state = GOAT_STATE.MOVING{
 	} else if targety = y and targetx = x {
 	//if legit, check if we've arrived
 		state = GOAT_STATE.IDLE
+	//testing saving after each move
+	//we have to add a save to a piule
 	} else if targety != y {
 	//if we need to move y, do some move
 	y = y + sign(targety - y)*min(abs(targety - y), movespeed)

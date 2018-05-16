@@ -16,6 +16,8 @@ if keyboard_check_pressed(vk_shift){
 }
 
 
+
+
 //first of all, only do ANYTHING if editing is true
 if editing then {
 	//do we want to switch types?
@@ -87,7 +89,7 @@ if editing then {
 			}
 		}
 		//are you in the pallett?
-		if mouse_x >= typex and mouse_x <= typex + 64*(typesArray[currenttype]+1)  and mouse_y >= typey and mouse_y <= typey + 64 {
+		if mouse_x >= typex and mouse_x <= typex+(gridsize*(maxchoices))  and mouse_y >= typey and mouse_y <= typey + 64 {
 				
 				//find out which choice we're over and assign it
 				currentchoice = (mouse_x - typex) div 64 

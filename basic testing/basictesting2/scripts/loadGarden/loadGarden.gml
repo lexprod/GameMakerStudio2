@@ -48,7 +48,7 @@ if (file_exists(levelsavename)) {
 					sprite_index = tempsprite	
 					image_index = tempsubimage
 					if tempobj = oTile {
-						mytileimage = tempsubimage
+						//mytileimage = tempsubimage
 						topcolor = temptop
 						bottomcolor = tempbottom
 					} else if tempobj = oGate {

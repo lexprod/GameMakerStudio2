@@ -21,6 +21,7 @@ if mystate = TILE_STATE.STARTFLIP {
 		} else  {
 			image_index = 1
 		}
+		
 	}
 }
 

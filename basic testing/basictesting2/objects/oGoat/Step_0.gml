@@ -80,8 +80,20 @@ if state = GOAT_STATE.MOVING{
 	} else if targetx >= room_width {
 		goatBump(x,y,1,x+10,y)
 	} else if targety = y and targetx = x {
-	//if legit, check if we've arrived
+		//if legit, check if we've arrived
 		state = GOAT_STATE.IDLE
+		//testing saving after each move
+		//this increases with each move and tile flip of the oGoat
+		with (oGame)
+		{
+			movecount +=1
+			//the save file is now the next number up
+			movefile = "room" + string(room) +" move" + string(movecount) + ".sav";
+			saveRoom(movefile);
+			//add that save file to the stack
+			ds_stack_push(movelist, movefile);
+			//we have to add a save to a piule
+		}
 	} else if targety != y {
 	//if we need to move y, do some move
 	y = y + sign(targety - y)*min(abs(targety - y), movespeed)
@@ -183,7 +195,8 @@ if state == GOAT_STATE.DECIDING {
 			destroyallobj(oNope)
 			//this stops the goat from also moving immediately
 			keyboard_clear(vk_up)
-			state = GOAT_STATE.IDLE
+			fallingtile = tileN
+			state = GOAT_STATE.WAITING
 		}
 	} else if keyboard_check_pressed(vk_right) {
 		if choiceE != noone and choiceE.object_index == oHighlight {
@@ -193,7 +206,8 @@ if state == GOAT_STATE.DECIDING {
 			destroyallobj(oHighlight)
 			destroyallobj(oNope)
 			keyboard_clear(vk_right)
-			state = GOAT_STATE.IDLE
+			fallingtile = tileE
+			state = GOAT_STATE.WAITING
 		}
 	} else if keyboard_check_pressed(vk_down) {
 		if choiceS != noone and choiceS.object_index == oHighlight {
@@ -203,7 +217,8 @@ if state == GOAT_STATE.DECIDING {
 			destroyallobj(oHighlight)
 			destroyallobj(oNope)
 			keyboard_clear(vk_down)
-			state = GOAT_STATE.IDLE
+			fallingtile = tileS
+			state = GOAT_STATE.WAITING
 		}
 	} else if keyboard_check_pressed(vk_left) {
 		if choiceW != noone and choiceW.object_index == oHighlight {
@@ -213,11 +228,33 @@ if state == GOAT_STATE.DECIDING {
 			destroyallobj(oHighlight)
 			destroyallobj(oNope)
 			keyboard_clear(vk_left)
-			state = GOAT_STATE.IDLE
+			fallingtile = tileW
+			state = GOAT_STATE.WAITING
 		}
 	}
 	
 }
 
+if state == GOAT_STATE.WAITING{
+	//did it stop flipping yet???
+	if fallingtile.mystate = TILE_STATE.IDLE 
+	{
+		//back to idle
+		state = GOAT_STATE.IDLE
+		//and save the flip
+		//testing saving after each move
+		//this increases with each move and tile flip of the oGoat
+		with (oGame)
+		{
+			movecount +=1
+			//the save file is now the next number up
+			movefile = "room" + string(room) +" move" + string(movecount) + ".sav";
+			saveRoom(movefile);
+			//add that save file to the stack
+			ds_stack_push(movelist, movefile);
+			//we have to add a save to a piule
+		}
+	}
+}
 		
 	

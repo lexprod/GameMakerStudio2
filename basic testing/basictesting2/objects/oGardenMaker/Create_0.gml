@@ -1,31 +1,6 @@
 /// @description make garden array
 //array is x grid, ygrid, sprite index
 
-
-
-deletetypes = 1
-
-flowertypes = sprite_get_number(sFlowers)
-statuetypes = sprite_get_number(sStatues)
-hedgetypes = sprite_get_number(sHedge)
-tileYPtypes = 2 //dont count all the sprites since they animate
-tileStartYTypes = sprite_get_number(sStartY)
-tileEndYTypes = sprite_get_number(sEndY)
-gateTypes = sprite_get_number(sGate)
-
-
-
-//I only use this array in 3 spots... I can probably gather the same info from the mega array I build
-typesArray[6]= gateTypes
-typesArray[5]= tileEndYTypes
-typesArray[4]= tileStartYTypes
-typesArray[3]= tileYPtypes
-typesArray[2]= hedgetypes
-typesArray[1]= statuetypes
-typesArray[0]= flowertypes
-
-//also starting now, stone types are out, eff em
-
 //I want to make a 2d array with [object number, property] as the coordinates
 //the object number is determined by multiplying the type numer by the max possible choices (8??) 
 //and basically just backsolving for a single number

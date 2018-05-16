@@ -12,7 +12,85 @@ if keyboard_check_pressed(vk_escape) {
 }
 
 
+//SAVING UNDO STATES
 
+//hvae we made the first one yet?
+if ds_stack_empty(movelist)
+{
+	//the save file is now the next number up
+	movefile = "room" + string(room) +" move" + string(movecount) + ".sav";
+	saveRoom(movefile);
+	//add that save file to the stack
+	ds_stack_push(movelist, movefile);
+	//we have to add a save to a piule
+}
+
+
+////here's also a test to through save stuff in, using F2 and load f3
+//if keyboard_check_pressed(vk_f2) {
+//	//this increases with each move and tile flip of the oGoat
+//	movecount +=1
+//	//the save file is now the next number up
+//	movefile = "room" + string(room) +" move" + string(movecount) + ".sav";
+//	saveRoom(movefile);
+//	//add that save file to the stack
+//	ds_stack_push(movelist, movefile);
+//} else 
+
+//ONLY allow undos and redos if the movecount isnt 0 still
+
+if keyboard_check_pressed(ord("Z")) 
+{
+	//bail out of deciding just in case
+	with oGoat 
+	{
+		clearChoices()
+		//kill all ohighlights instance
+		destroyallobj(oHighlight)
+		destroyallobj(oNope)
+		state = GOAT_STATE.IDLE
+	}
+	//is there any undos to undo?
+	if ds_stack_size(movelist) > 0 {
+		//ok what was the last save?
+		movefile = ds_stack_pop(movelist);
+		loadRoom(movefile)
+		//and go down one move
+		//never go below 0
+		movecount = max(0,movecount-1)
+	}
+} else if keyboard_check_pressed(ord("R"))
+{
+	//bail out of deciding just in case
+	with oGoat 
+	{
+		clearChoices()
+		//kill all ohighlights instance
+		destroyallobj(oHighlight)
+		destroyallobj(oNope)
+		state = GOAT_STATE.IDLE
+	}
+	//time to restart
+	//so pop each move file until movecount = 0?
+	for (var i = movecount; i > 0; i--)
+	{
+		movefile = ds_stack_pop(movelist);
+		//delete that file
+		if (file_exists(movefile)) 
+		{
+			file_delete(movefile)
+		}
+	}
+	//load the last one
+	movefile = ds_stack_pop(movelist);
+	loadRoom(movefile)
+	movecount = 0
+}
+
+
+
+
+///YELLOW PATH CHECKING
 //dont turn on if we're editing
 if oGardenMaker.editing == false {
 	//if there is a start tile, lets see if there's a path
@@ -181,8 +259,15 @@ if instance_exists(oGoat) and collision_point(oGoat.x,oGoat.y,oGate,false,false)
 			
 		
 			//unsolve the level
-			yPathComplete = false
-			levelComplete = false
+			other.yPathComplete = false
+			other.levelComplete = false
+			
+			//dump the stack for undos
+			other.movecount = 0
+			//this stack stores the filename of each and every save of each move holy cow
+			//FILO methodology
+			ds_stack_clear(other.movelist);
+
 
 		
 		} else {

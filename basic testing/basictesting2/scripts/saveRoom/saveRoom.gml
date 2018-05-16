@@ -1,4 +1,5 @@
 //will save all objects using json??
+var _filename = argument0
 
 //create a root list
 var _root_list = ds_list_create();
@@ -113,7 +114,7 @@ ds_map_add_list(_wrapper, "ROOT", _root_list);
 var _string  = json_encode(_wrapper);
 //SaveStringToFile("testsave.sav", _string);
 
-var _filename = "testsave.sav"
+//var _filename = "testsave.sav"
 //also argument for string
 
 var _buffer = buffer_create(string_byte_length( _string)+1, buffer_fixed, 1);
@@ -124,5 +125,5 @@ buffer_delete( _buffer);
 //nuke data//
 ds_map_destroy(_wrapper);
 
-show_debug_message("shit saved sirr");
+show_debug_message("saved " + string(_filename));
 	

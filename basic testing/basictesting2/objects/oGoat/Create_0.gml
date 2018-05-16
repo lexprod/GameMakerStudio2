@@ -6,11 +6,12 @@ show_debug_message(string(birthday))
 
 enum GOAT_STATE {
 	IDLE,
-	MOVING,
-	FLIPPING,
-	DECIDING,
-	PUSHING,
-	BUMPING
+	MOVING, //while walking from sq to sq
+	FLIPPING, //after space is pressed and after we check for valid targets
+	DECIDING, //when looking at options for flips
+	PUSHING, 
+	BUMPING, //when bouncing off an illegal move
+	WAITING //when a tile is falling
 }
 
 state = GOAT_STATE.IDLE
@@ -33,3 +34,8 @@ downy = y + gridsize
 
 layer_add_instance("goat",self)
 clearChoices()
+
+//this is for waiting for the tile to complete its move
+fallingtile = noone
+
+

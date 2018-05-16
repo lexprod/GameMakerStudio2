@@ -15,12 +15,7 @@ if keyboard_check_pressed(vk_shift){
 	saveGarden();
 }
 
-//here's also a test to through save stuff in, using F2 and load f3
-if keyboard_check_pressed(vk_f2) {
-	saveRoom()
-} else if keyboard_check_pressed(vk_f3) {
-	loadRoom()
-}
+
 
 
 //first of all, only do ANYTHING if editing is true

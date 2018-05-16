@@ -1,34 +1,36 @@
 // @desc load game
 
-with (oGardenObj) { 
-	instance_destroy();
-}
+var _filename = argument0
 
-with (oGate) {
-	instance_destroy();
-}
-
-with (oTile) { 
-	instance_destroy();
-}
-
-with (oStartY) {
-	instance_destroy();
-}
-
-with (oEndY) {
-	instance_destroy();
-}
-
-with (oGoat) {
-	instance_destroy();
-}
-
-
-if (file_exists("testsave.sav")) 
+if (file_exists(_filename)) 
 {
+	
+	
+	with (oGardenObj) { 
+		instance_destroy();
+	}
+
+	with (oGate) {
+		instance_destroy();
+	}
+
+	with (oTile) { 
+		instance_destroy();
+	}
+
+	with (oStartY) {
+		instance_destroy();
+	}
+
+	with (oEndY) {
+		instance_destroy();
+	}
+
+	with (oGoat) {
+		instance_destroy();
+	}
 	//var _wrapper = LoadJSONFromFile
-	var _filename = "testsave.sav"
+	
 	
 	var _buffer = buffer_load( _filename )
 	var _string = buffer_read( _buffer, buffer_string );
@@ -70,6 +72,6 @@ if (file_exists("testsave.sav"))
 	}
 	//nuke data
 	ds_map_destroy(_wrapper);
-	show_debug_message("loaded")	
+	show_debug_message("loaded " + string(_filename));
 	
 }

@@ -14,4 +14,6 @@ with other {
 	targety = argument4
 	
 	state = GOAT_STATE.BUMPING
+	
+	audio_play_sound(a1,0,false)
 }

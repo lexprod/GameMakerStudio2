@@ -22,4 +22,23 @@ movecount = 0
 //FILO methodology
 movelist = ds_stack_create();
 
+movestodelete = true
+//let's clear out any old undo saves just in case
+
+//this will be a script in future maybe
+//clear all undos
+while (movestodelete = true){
+	var _file = file_find_first("*.sav", 0);
+	//if an empty string is returned, then we're done!
+	if _file == "" 
+	{
+		movestodelete = false
+	} else 
+	{
+		//otherwise, there's a .sav, kill it!
+		file_delete(_file)
+	}
+}
+
+
 

@@ -125,5 +125,5 @@ buffer_delete( _buffer);
 //nuke data//
 ds_map_destroy(_wrapper);
 
-show_debug_message("saved " + string(_filename));
+//show_debug_message("saved " + string(_filename));
 	

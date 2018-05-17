@@ -5,6 +5,24 @@ if keyboard_check_pressed(vk_tab) {room_restart()}
 if keyboard_check_pressed(vk_home) {game_restart()}
 if keyboard_check_pressed(vk_escape) {
 	if room == rMap {
+		movestodelete = true
+		//let's clear out any old undo saves just in case
+
+		//this will be a script in future maybe
+		//clear all undos
+		while (movestodelete = true)
+		{
+			var _file = file_find_first("*.sav", 0);
+			//if an empty string is returned, then we're done!
+			if _file == "" 
+			{
+				movestodelete = false
+			} else 
+			{
+				//otherwise, there's a .sav, kill it!
+				file_delete(_file)
+			}
+		}
 		game_end()
 	} else {
 		room_goto(rMap)
@@ -267,6 +285,25 @@ if instance_exists(oGoat) and collision_point(oGoat.x,oGoat.y,oGate,false,false)
 			//this stack stores the filename of each and every save of each move holy cow
 			//FILO methodology
 			ds_stack_clear(other.movelist);
+			
+			movestodelete = true
+			//let's clear out any old undo saves just in case
+
+			//this will be a script in future maybe
+			//clear all undos
+			while (movestodelete = true)
+			{
+				var _file = file_find_first("*.sav", 0);
+				//if an empty string is returned, then we're done!
+				if _file == "" 
+				{
+					movestodelete = false
+				} else 
+				{
+					//otherwise, there's a .sav, kill it!
+					file_delete(_file)
+				}
+			}
 
 
 		

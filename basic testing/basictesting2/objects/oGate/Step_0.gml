@@ -8,7 +8,9 @@ if gatelocked = true {
 	solidobj = false
 }
 
-if keyboard_check_pressed(vk_f1) {
-	//debug unlocks
-	gatelocked = !gatelocked
+if oGame.debugOn {
+	if keyboard_check_pressed(vk_f1) {
+		//debug unlocks
+		gatelocked = !gatelocked
+	}
 }

@@ -6,13 +6,16 @@ if layer != "Instances" {
 	layer_add_instance("Instances",self)
 }
 
-if keyboard_check_pressed(vk_shift){
-	editing = not editing
-	currenttype = 0
-	currentchoice = 0
-	OverX = 0
-	OverY = 0
-	saveGarden();
+
+if oGame.debugOn {
+	if keyboard_check_pressed(vk_shift){
+		editing = not editing
+		currenttype = 0
+		currentchoice = 0
+		OverX = 0
+		OverY = 0
+		saveGarden();
+	}
 }
 
 
@@ -34,7 +37,7 @@ if editing then {
 	} else {
 	mouseOver = false
 	}
-	//when a click happens...
+	#region //when a click happens...
 	if mouse_check_button_pressed(mb_left){
 		//is the mouse in the garden?
 		
@@ -95,7 +98,8 @@ if editing then {
 				currentchoice = (mouse_x - typex) div 64 
 		}
 	}
-	//ok also while editing, we can resize the grid/garden how we see fit
+	#endregion
+	#region //ok also while editing, we can resize the grid/garden how we see fit
 	//when an arrow is pressed
 	//first let's try the up arrow to reduce rows
 	if keyboard_check_pressed(vk_up) {
@@ -226,6 +230,7 @@ if editing then {
 			tempgarden = 0
 		}
 	}
+	#endregion
 } else {
 	mouseOver = false	
 }

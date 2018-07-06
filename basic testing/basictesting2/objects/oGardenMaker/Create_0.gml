@@ -41,6 +41,7 @@ for (a=0;a<maxtypes;a++) {
 }
 //there we made it big
 
+#region //flowers into array
 //alright, type 0 is flowers
 for (i = 0; i < sprite_get_number(sFlowers); i ++) {
 	//obj
@@ -53,9 +54,10 @@ for (i = 0; i < sprite_get_number(sFlowers); i ++) {
 	gardenObjects[objType.flowers*maxchoices + i,3] = -1
 	gardenObjects[objType.flowers*maxchoices + i,4] = -1
 }
+#endregion
 
 //type 1 is statues
-
+#region //statues into array
 for (i = 0; i < sprite_get_number(sStatues); i ++) {
 	//obj
 	gardenObjects[objType.statues*maxchoices + i,0] = oGardenObj
@@ -67,8 +69,9 @@ for (i = 0; i < sprite_get_number(sStatues); i ++) {
 	gardenObjects[objType.statues*maxchoices + i,3] = -1
 	gardenObjects[objType.statues*maxchoices + i,4] = -1
 }
+#endregion
 
-//type 2 is hedges
+#region //type 2 is hedges
 
 for (i = 0; i < sprite_get_number(sHedge); i ++) {
 	//obj
@@ -81,9 +84,10 @@ for (i = 0; i < sprite_get_number(sHedge); i ++) {
 	gardenObjects[objType.hedges*maxchoices + i,3] = -1
 	gardenObjects[objType.hedges*maxchoices + i,4] = -1
 }
+#endregion
 
 
-//type 3 is yellow/pink tiles
+#region //type 3 is yellow/pink tiles
 //this has to be done one at a time manually to be safe
 gardenObjects[objType.YPtiles*maxchoices + 0,0] = oTile
 gardenObjects[objType.YPtiles*maxchoices + 0,1] = sTileYP
@@ -101,11 +105,12 @@ gardenObjects[objType.YPtiles*maxchoices + 1,2] = 1
 gardenObjects[objType.YPtiles*maxchoices + 1,3] = "P"
 //bottom color
 gardenObjects[objType.YPtiles*maxchoices + 1,4] = "Y"
+#endregion
 
 
 
 
-//type 4 is y/p starts
+#region //type 4 is y/p starts
 for (i = 0; i < sprite_get_number(sStartY); i ++) {
 	//obj
 	gardenObjects[objType.Ystarts*maxchoices + i,0] = oStartY
@@ -117,9 +122,9 @@ for (i = 0; i < sprite_get_number(sStartY); i ++) {
 	gardenObjects[objType.Ystarts*maxchoices + i,3] = -1
 	gardenObjects[objType.Ystarts*maxchoices + i,4] = -1
 }
+#endregion
 
-
-//type 5 is y/p ends
+#region//type 5 is y/p ends
 for (i = 0; i < sprite_get_number(sEndY); i ++) {
 	//obj
 	gardenObjects[objType.Yends*maxchoices + i,0] = oEndY
@@ -131,9 +136,10 @@ for (i = 0; i < sprite_get_number(sEndY); i ++) {
 	gardenObjects[objType.Yends*maxchoices + i,3] = -1
 	gardenObjects[objType.Yends*maxchoices + i,4] = -1
 }
+#endregion
 
 
-//type 6 is gates
+#region //type 6 is gates
 //manual gate types
 //a closed
 	//obj
@@ -155,7 +161,7 @@ for (i = 0; i < sprite_get_number(sEndY); i ++) {
 	//gatelocked
 	gardenObjects[objType.gates*maxchoices + 1,3] = false
 	gardenObjects[objType.gates*maxchoices + 1,4] = -1
-
+#endregion
 
 //ok feels good, now to use this object
 

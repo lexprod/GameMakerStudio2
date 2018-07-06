@@ -1,30 +1,30 @@
 /// @description tab to restrtys
 // You can write your code in this editor
 
-if keyboard_check_pressed(vk_tab) {room_restart()}
-if keyboard_check_pressed(vk_home) {game_restart()}
-if keyboard_check_pressed(vk_escape) {
-	if room == rMap {
-		movestodelete = true
-		//let's clear out any old undo saves just in case
+if keyboard_check(vk_control) and keyboard_check_pressed(vk_enter) {
+	debugOn = !debugOn
+	show_debug_message("debug is " + string(debugOn))
+}
 
-		//this will be a script in future maybe
-		//clear all undos
-		while (movestodelete = true)
-		{
-			var _file = file_find_first("*.sav", 0);
-			//if an empty string is returned, then we're done!
-			if _file == "" 
-			{
-				movestodelete = false
-			} else 
-			{
-				//otherwise, there's a .sav, kill it!
-				file_delete(_file)
-			}
-		}
+if debugOn {
+	if keyboard_check_pressed(vk_tab) {
+		killAllSavs()
+		room_restart()
+	}
+	if keyboard_check_pressed(vk_home) {
+		killAllSavs()
+		game_restart()
+	}
+}
+if keyboard_check_pressed(vk_escape) {
+	//show_debug_message("I chould run the script")
+	killAllSavs()
+	if room == rMap {
+		//if on main map, quit
 		game_end()
 	} else {
+		//show_debug_message("guess I did thius")
+		//optherwise go back to main map
 		room_goto(rMap)
 	}
 }
@@ -43,19 +43,7 @@ if ds_stack_empty(movelist)
 	//we have to add a save to a piule
 }
 
-
-////here's also a test to through save stuff in, using F2 and load f3
-//if keyboard_check_pressed(vk_f2) {
-//	//this increases with each move and tile flip of the oGoat
-//	movecount +=1
-//	//the save file is now the next number up
-//	movefile = "room" + string(room) +" move" + string(movecount) + ".sav";
-//	saveRoom(movefile);
-//	//add that save file to the stack
-//	ds_stack_push(movelist, movefile);
-//} else 
-
-//ONLY allow undos and redos if the movecount isnt 0 still
+#region //Z for undo and r to restart ONLY allow undos and redos if the movecount isnt 0 still
 
 if keyboard_check_pressed(ord("Z")) 
 {
@@ -76,6 +64,8 @@ if keyboard_check_pressed(ord("Z"))
 		//and go down one move
 		//never go below 0
 		movecount = max(0,movecount-1)
+		//also delete that undo?
+		file_delete(movefile)
 	}
 } else if keyboard_check_pressed(ord("R"))
 {
@@ -90,25 +80,18 @@ if keyboard_check_pressed(ord("Z"))
 	}
 	//time to restart
 	//so pop each move file until movecount = 0?
-	for (var i = movecount; i > 0; i--)
-	{
-		movefile = ds_stack_pop(movelist);
-		//delete that file
-		if (file_exists(movefile)) 
-		{
-			file_delete(movefile)
-		}
-	}
+	restartUndos()
 	//load the last one
 	movefile = ds_stack_pop(movelist);
 	loadRoom(movefile)
 	movecount = 0
 }
+#endregion
 
 
 
 
-///YELLOW PATH CHECKING
+#region ///YELLOW PATH CHECKING
 //dont turn on if we're editing
 if oGardenMaker.editing == false {
 	//if there is a start tile, lets see if there's a path
@@ -252,10 +235,12 @@ if oGardenMaker.editing == false {
 } else {
 	ds_list_clear(yTilePathList)
 }
+#endregion
 
 
 
-//ok so what if you are in charge of goat going through gates
+#region //ok so what if you are in charge of goat going through gates
+
 //wait until goat is done moving??
 if instance_exists(oGoat) and collision_point(oGoat.x,oGoat.y,oGate,false,false) and oGoat.state = GOAT_STATE.IDLE{
 	//show_debug_message("I touched a gate")
@@ -280,39 +265,40 @@ if instance_exists(oGoat) and collision_point(oGoat.x,oGoat.y,oGate,false,false)
 			other.yPathComplete = false
 			other.levelComplete = false
 			
-			//dump the stack for undos
-			other.movecount = 0
-			//this stack stores the filename of each and every save of each move holy cow
-			//FILO methodology
-			ds_stack_clear(other.movelist);
-			
-			movestodelete = true
-			//let's clear out any old undo saves just in case
-
-			//this will be a script in future maybe
-			//clear all undos
-			while (movestodelete = true)
-			{
-				var _file = file_find_first("*.sav", 0);
-				//if an empty string is returned, then we're done!
-				if _file == "" 
-				{
-					movestodelete = false
-				} else 
-				{
-					//otherwise, there's a .sav, kill it!
-					file_delete(_file)
-				}
+			with oGame{
+				killAllSavs()
 			}
+			////dump the stack for undos
+			//other.movecount = 0
+			////this stack stores the filename of each and every save of each move holy cow
+			////FILO methodology
+			//ds_stack_clear(other.movelist);
+			
+			//movestodelete = true
+			////let's clear out any old undo saves just in case
 
-
-		
+			////this will be a script in future maybe
+			////clear all undos
+			//while (movestodelete = true)
+			//{
+			//	var _file = file_find_first("*.sav", 0);
+			//	//if an empty string is returned, then we're done!
+			//	if _file == "" 
+			//	{
+			//		movestodelete = false
+			//	} else 
+			//	{
+			//		//otherwise, there's a .sav, kill it!
+			//		file_delete(_file)
+			//	}
+			//}
 		} else {
 			//show_debug_message("its locked")
 		}
 	}
 	
 }
+#endregion
 
 
 

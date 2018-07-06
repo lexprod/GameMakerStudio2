@@ -207,6 +207,14 @@
             }
         },
         {
+            "Key": "72c0cf53-a567-4242-a553-fa89b1ad7846",
+            "Value": {
+                "id": "2a44ba2b-9c8a-48e8-bdff-11c7312abd55",
+                "resourcePath": "scripts\\killAllSavs\\killAllSavs.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "75722768-0513-4040-8492-37fe158c1360",
             "Value": {
                 "id": "d5d22883-1917-46a1-8e86-dc2b0b9e4ac7",
@@ -252,6 +260,14 @@
                 "id": "d5e0979f-7c6f-485b-a7ce-d3fff6ae6fbd",
                 "resourcePath": "views\\83e2ce76-3cf7-4b64-bfe9-4f7cf92f06f0.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "86516a33-4698-49bd-9c3d-15ff6458ec94",
+            "Value": {
+                "id": "97d9ba45-a9cd-4df6-8134-23672a0769a8",
+                "resourcePath": "scripts\\restartUndos\\restartUndos.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -348,6 +364,14 @@
                 "id": "5d17b828-a7af-4352-9f77-fff5a8e4f181",
                 "resourcePath": "sprites\\sEndY\\sEndY.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a9188620-a624-4a5a-83ae-a1b53faf038b",
+            "Value": {
+                "id": "4844a0ba-7303-411a-ac5d-25249e9e936a",
+                "resourcePath": "options\\linux\\options_linux.yy",
+                "resourceType": "GMLinuxOptions"
             }
         },
         {
@@ -495,19 +519,19 @@
             }
         },
         {
-            "Key": "e5af5da9-0d31-433c-ac66-0144bacf8d68",
-            "Value": {
-                "id": "17744a9f-3c0b-4784-9314-a5e48a8e9370",
-                "resourcePath": "objects\\otestthing\\otestthing.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "f3b095ad-d9fe-4ad3-87aa-b6732400ecf6",
             "Value": {
                 "id": "9cf89617-34d5-4e02-8ce1-692d132280e9",
                 "resourcePath": "scripts\\clearChoices\\clearChoices.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f418569b-3bdd-4706-a0e4-364317f54032",
+            "Value": {
+                "id": "4e11e0af-d5ac-4273-9fdb-b3edf6d52114",
+                "resourcePath": "options\\mac\\options_mac.yy",
+                "resourceType": "GMMacOptions"
             }
         },
         {
@@ -561,7 +585,9 @@
         "f3b095ad-d9fe-4ad3-87aa-b6732400ecf6",
         "75722768-0513-4040-8492-37fe158c1360",
         "ccb26800-5a50-4b0f-aafa-201b626d05b7",
-        "2fda2fe7-68fb-43c5-8ed1-7e07592e8e9d"
+        "2fda2fe7-68fb-43c5-8ed1-7e07592e8e9d",
+        "86516a33-4698-49bd-9c3d-15ff6458ec94",
+        "72c0cf53-a567-4242-a553-fa89b1ad7846"
     ],
     "tutorial": ""
 }

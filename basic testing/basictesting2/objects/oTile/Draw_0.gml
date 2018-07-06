@@ -7,7 +7,7 @@
 if room = rMap and oGardenMaker.editing = true and MouseOn(self) {
 	
 }else {
-draw_self();
+	draw_self();
 
 }
 //go through the flip images stuff

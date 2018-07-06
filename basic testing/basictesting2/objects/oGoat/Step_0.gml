@@ -1,6 +1,7 @@
 /// @description move controls
 // 
 
+#region //input udlr and space from STATE.idle
 //before move check for obstacle, and if it is set mode to bumping
 if state = GOAT_STATE.IDLE and oGardenMaker.editing == false{
 	if keyboard_check(vk_up) {
@@ -68,7 +69,9 @@ if state = GOAT_STATE.IDLE and oGardenMaker.editing == false{
 		tileW = instance_place(x-gridsize,y,oTile)
 	}
 }
+#endregion
 
+#region //Movement handling for STATE.moving
 if state = GOAT_STATE.MOVING{
 	//check if we're trying to go out of bounds
 	if targety < 0 {
@@ -105,8 +108,9 @@ if state = GOAT_STATE.MOVING{
 		show_debug_message("goat state moving says targetx " + string(targetx) + "and targety" + string(targety))
 	}
 }
+#endregion
 
-
+#region //Bumpiong off obstacles state.bumping
 if state == GOAT_STATE.BUMPING {
 	if y == targety and x == targetx {
 		if y != bumpstarty or x != bumpstartx {
@@ -125,7 +129,9 @@ if state == GOAT_STATE.BUMPING {
 	}
 	
 }
+#endregion
 
+#region //goinf from FLIPPING to DECIDING WHAT TO FLIP
 if state == GOAT_STATE.FLIPPING{
 	tileNeighbors = 0
 	if tileN != noone {tileNeighbors += 1 }
@@ -175,7 +181,9 @@ if state == GOAT_STATE.FLIPPING{
 		keyboard_clear(vk_space)
 	}
 }
+#endregion
 
+#region //going from DECIDING to either cancelt o IDLE or going into WAITING for tileflip
 if state == GOAT_STATE.DECIDING {
 	//hey do you wanna cancel flipping???
 	if keyboard_check_pressed(vk_space) {
@@ -234,7 +242,9 @@ if state == GOAT_STATE.DECIDING {
 	}
 	
 }
+#endregion
 
+#region //WAITING for a tile to flip and return to idle
 if state == GOAT_STATE.WAITING{
 	//did it stop flipping yet???
 	if fallingtile.mystate = TILE_STATE.IDLE 
@@ -256,5 +266,5 @@ if state == GOAT_STATE.WAITING{
 		}
 	}
 }
-		
+#endregion	
 	

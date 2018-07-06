@@ -17,6 +17,7 @@ gatedata[0,0] = gridsize
 
 for (i = 0; i < array_height_2d(gatedata); i++) {
 		newgate = instance_create_layer(gatedata[i,0],gatedata[i,1],"Gates",oGate)
-		newgate.targetroomindex = gatedata[i,2]
-		
+		newgate.targetroomindex = gatedata[i,2]		
 }
+
+gatedata = 0

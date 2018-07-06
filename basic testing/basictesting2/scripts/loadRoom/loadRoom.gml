@@ -72,6 +72,6 @@ if (file_exists(_filename))
 	}
 	//nuke data
 	ds_map_destroy(_wrapper);
-	show_debug_message("loaded " + string(_filename));
+	//show_debug_message("loaded " + string(_filename));
 	
 }

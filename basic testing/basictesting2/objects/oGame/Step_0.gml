@@ -6,6 +6,7 @@ if keyboard_check(vk_control) and keyboard_check_pressed(vk_enter) {
 	show_debug_message("debug is " + string(debugOn))
 }
 
+
 if debugOn {
 	if keyboard_check_pressed(vk_tab) {
 		killAllSavs()
@@ -16,18 +17,7 @@ if debugOn {
 		game_restart()
 	}
 }
-if keyboard_check_pressed(vk_escape) {
-	//show_debug_message("I chould run the script")
-	killAllSavs()
-	if room == rMap {
-		//if on main map, quit
-		game_end()
-	} else {
-		//show_debug_message("guess I did thius")
-		//optherwise go back to main map
-		room_goto(rMap)
-	}
-}
+
 
 
 //SAVING UNDO STATES

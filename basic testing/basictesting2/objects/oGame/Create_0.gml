@@ -4,6 +4,10 @@
 //this controls all the editing and cheaty options
 debugOn = true
 
+//make the menu obj, its gonna be persistent and mostly invis
+instance_create_layer(0,0,"Instances",oMenu)
+
+
 //keeps tabs on any yellow paths
 yTilePathList = ds_list_create()
 

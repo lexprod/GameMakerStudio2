@@ -159,6 +159,14 @@
             }
         },
         {
+            "Key": "512a6a84-66a9-4368-8fe0-fb0f3577e195",
+            "Value": {
+                "id": "a2df5d1b-d734-4648-bfb9-2b7bff1eb857",
+                "resourcePath": "fonts\\fMenu\\fMenu.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "52c7cf46-54c1-4936-9251-d0b7185000db",
             "Value": {
                 "id": "ab19137c-e19f-4232-948c-e16506d9d184",
@@ -335,6 +343,14 @@
             }
         },
         {
+            "Key": "9b11aa2e-00f2-44e4-827e-2fb028ec6519",
+            "Value": {
+                "id": "74b7a687-00bb-403f-9c8a-3c434a53a7ef",
+                "resourcePath": "sprites\\sHedgeMenu\\sHedgeMenu.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "9ceba24f-4379-45ea-99d1-fe978db8e845",
             "Value": {
                 "id": "5f344d0a-9935-4180-a38b-e850efcb7b7b",
@@ -348,6 +364,14 @@
                 "id": "c5f93eee-111a-414a-8ea0-5a2e5501c14b",
                 "resourcePath": "objects\\oHighlight\\oHighlight.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "a3398e88-08ca-4da1-bc56-fe8e4784bdff",
+            "Value": {
+                "id": "eac980e0-7e91-48f2-a260-a0b881cb7fcc",
+                "resourcePath": "scripts\\drawNineSlice\\drawNineSlice.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -595,7 +619,8 @@
         "ccb26800-5a50-4b0f-aafa-201b626d05b7",
         "2fda2fe7-68fb-43c5-8ed1-7e07592e8e9d",
         "86516a33-4698-49bd-9c3d-15ff6458ec94",
-        "72c0cf53-a567-4242-a553-fa89b1ad7846"
+        "72c0cf53-a567-4242-a553-fa89b1ad7846",
+        "a3398e88-08ca-4da1-bc56-fe8e4784bdff"
     ],
     "tutorial": ""
 }

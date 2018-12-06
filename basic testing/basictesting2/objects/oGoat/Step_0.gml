@@ -1,6 +1,8 @@
 /// @description move controls
 // 
 
+//only operate if menu is closed
+if global.menuOn == false {
 #region //input udlr and space from STATE.idle
 //before move check for obstacle, and if it is set mode to bumping
 if state = GOAT_STATE.IDLE and oGardenMaker.editing == false{
@@ -268,3 +270,4 @@ if state == GOAT_STATE.WAITING{
 }
 #endregion	
 	
+}

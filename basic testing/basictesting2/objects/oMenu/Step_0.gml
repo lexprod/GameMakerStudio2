@@ -36,6 +36,15 @@ if keyboard_check_pressed(vk_escape) {
 	if keyboard_check_pressed(vk_escape) {
 		//open menu
 		global.menuOn = true
+		//refresh possible menu
+		ds_list_empty(listMenu)
+		ds_list_add((ds_list_size),"Resume")
+		if room != rMap {
+			ds_list_add((ds_list_size),"Back to Hub")
+		}
+		ds_list_add((ds_list_size),"Quit Game")
+		menu_items = ds_list_size(listMenu)
+		cursor_item = 0
 	}
 }
 

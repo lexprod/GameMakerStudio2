@@ -31,5 +31,20 @@ for (var i = 1; i < (_rows); i++;) {
 	//left edge
 	draw_sprite_part(argument0,0,0, _size, _size, _size, _x1 , _y1 + (i * _size))
 	//right edge
-	draw_sprite_part(argument0,0, 2*_size, _size, _size, _size, _x1 + ((_columns - 1) * _size) , _y1 + (i * _size))
+	draw_sprite_part(argument0,0, 2*_size, _size, _size, _size, _x1 + (_columns * _size) , _y1 + (i * _size))
+}
+//columns
+for (var i = 1; i < (_columns); i++;) {
+	//top  edge
+	draw_sprite_part(argument0,0, _size , 0, _size, _size, _x1 + (i * _size), _y1)
+	//bottum edge
+	draw_sprite_part(argument0,0, _size, 2 * _size, _size, _size, _x1 + (i * _size) , _y1 + (_rows * _size))
+}
+
+//center
+for (var i = 1; i < (_columns); i++;) {
+	for (var j = 1; j < (_rows); j++;) {
+		draw_sprite_part(argument0,0, _size , _size , _size, _size, _x1 + (i * _size), _y1 + (j * _size))
+	}
+
 }

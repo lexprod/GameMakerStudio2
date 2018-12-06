@@ -10,27 +10,27 @@ if editing {
 			draw_sprite(sGrid,0,x+(w*gridsize), y+(h*gridsize))
 		}
 	}
-}
 
 
 
-//current setup for drawing teh cursor item
-//this will have to be adjusted
-if mouseOver = true {
-	//0 in any type is delete
-	if currentchoice = 0 {
-		draw_sprite(sDelete,currentchoice,mouse_x-(mouse_x mod gridsize),mouse_y-(mouse_y mod gridsize))
-	} else {
-		var tempn = (currenttype * maxchoices) + (currentchoice - 1)
-		var tempdrawsprite = gardenObjects[tempn,1]
-		var tempdrawsub = gardenObjects[tempn,2]
+
+	//current setup for drawing teh cursor item
+	//this will have to be adjusted
+	if mouseOver = true {
+		//0 in any type is delete
+		if currentchoice = 0 {
+			draw_sprite(sDelete,currentchoice,mouse_x-(mouse_x mod gridsize),mouse_y-(mouse_y mod gridsize))
+		} else {
+			var tempn = (currenttype * maxchoices) + (currentchoice - 1)
+			var tempdrawsprite = gardenObjects[tempn,1]
+			var tempdrawsub = gardenObjects[tempn,2]
 		
-		draw_sprite(tempdrawsprite,tempdrawsub,mouse_x-(mouse_x mod gridsize),mouse_y-(mouse_y mod gridsize));
+			draw_sprite(tempdrawsprite,tempdrawsub,mouse_x-(mouse_x mod gridsize),mouse_y-(mouse_y mod gridsize));
+		}
 	}
-}
 
 //drawing teh  palette
-if editing {
+
 	draw_set_alpha(0.7)
 	draw_set_color(c_black)
 	//ok itll always just be the same size idk

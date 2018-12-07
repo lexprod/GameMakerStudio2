@@ -1,9 +1,9 @@
 //loads the garden from save
-show_debug_message("I'm laoding a garden in room "+ string(room))
+show_debug_message("I'm laoding a garden in room "+ string(room_get_name(room)))
 
 //based on the room we're loading, make that file save name
 
-var levelsavename = "garden" + string(room) + ".lvl"
+var levelsavename = "garden" + string(room_get_name(room)) + ".lvl"
 
 //will save the garden grid to an ini
 if (file_exists(levelsavename)) {
@@ -59,7 +59,7 @@ if (file_exists(levelsavename)) {
 		}
 	}
 	ini_close()
-}
+
 
 if !instance_exists(oGoat) {
 	instance_create_layer(gridsize*1,gridsize*1,"Goat",oGoat)
@@ -77,7 +77,7 @@ if instance_exists(oStartY) {
 	goatfriend.rightx = start.x + gridsize
 	goatfriend.upy = start.y - gridsize
 	goatfriend.downy = start.y + gridsize
-	
+} 
 }
 
 

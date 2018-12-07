@@ -1,0 +1,1 @@
+targetroomindex = asset_get_index("rHall1")

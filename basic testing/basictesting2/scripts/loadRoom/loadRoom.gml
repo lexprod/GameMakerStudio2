@@ -5,7 +5,7 @@ var _filename = argument0
 if (file_exists(_filename)) 
 {
 	
-	
+	//kill gardens obstacles,gates,tiles,startys,endys,andgoats
 	with (oGardenObj) { 
 		instance_destroy();
 	}

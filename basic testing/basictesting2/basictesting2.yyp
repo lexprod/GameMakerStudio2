@@ -71,6 +71,14 @@
             }
         },
         {
+            "Key": "17d2be67-ab77-4b71-a03e-4dba134a5614",
+            "Value": {
+                "id": "6722d1fa-51e1-403e-af95-66b98f91d79c",
+                "resourcePath": "rooms\\rHall4\\rHall4.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "1811ac46-c046-4ed7-997d-b5d9b50be2aa",
             "Value": {
                 "id": "01bd0b5d-c896-45f6-8926-a7745973326b",
@@ -415,6 +423,14 @@
             }
         },
         {
+            "Key": "a9aea4d6-43ee-4d20-bd81-82ccd81902c9",
+            "Value": {
+                "id": "79568b62-22d4-4ff6-bbfa-d48443353a38",
+                "resourcePath": "rooms\\rHall3\\rHall3.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "abbb4fca-7b66-4fd5-8be5-cb483e254aa1",
             "Value": {
                 "id": "c4feeea7-cdb7-4af2-b540-2a8c0851b722",
@@ -468,6 +484,14 @@
                 "id": "46f30153-61cd-49ee-ab92-872d07d335b1",
                 "resourcePath": "scripts\\loadGarden\\loadGarden.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c6c1d541-1703-41c9-9e71-08972ee79535",
+            "Value": {
+                "id": "a7e46650-bf18-426e-b4cd-0f7f3a944613",
+                "resourcePath": "rooms\\rHall5\\rHall5.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
@@ -556,6 +580,14 @@
                 "id": "54654695-5254-4da6-8d38-efe57fd76d9f",
                 "resourcePath": "objects\\oMenu\\oMenu.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "f1650e48-5fe1-4f9b-96c0-41200e817e58",
+            "Value": {
+                "id": "fd93f59e-6fa4-4530-83f7-3595d4da5b7d",
+                "resourcePath": "rooms\\rHall2\\rHall2.yy",
+                "resourceType": "GMRoom"
             }
         },
         {

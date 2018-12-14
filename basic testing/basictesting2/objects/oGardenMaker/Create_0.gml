@@ -178,8 +178,8 @@ currentchoice = 0
 //ok so now we need to work on a map for all the level files
 
 
-if (file_exists("garden0.lvl")) {
-	ini_open("garden0.lvl")
+if (file_exists("gardenrMap.lvl")) {
+	ini_open("gardenrMap.lvl")
 	
 	//hey lets check the garden size
 	gardenwidth = ini_read_real("gardensize","width",1)

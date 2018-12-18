@@ -82,6 +82,11 @@ if instance_exists(oStartY) {
 	goatfriend.downy = start.y + gridsize
 } 
 
+//and assign gates
+if instance_exists(oGate) {
+	loadGates(room)	
+}
+
 
 
 

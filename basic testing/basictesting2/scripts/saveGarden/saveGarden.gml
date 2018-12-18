@@ -1,7 +1,7 @@
 //will save the garden grid to an ini
 
 
-var levelsavename = "garden" + string(room) + ".lvl"
+var levelsavename = "garden" + string(room_get_name(room)) + ".lvl"
 
 
 if (file_exists(levelsavename)) {

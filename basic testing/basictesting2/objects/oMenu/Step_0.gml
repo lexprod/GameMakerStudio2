@@ -13,10 +13,11 @@ if keyboard_check_pressed(vk_escape) {
 			if (cursor_item >= menu_items) {cursor_item = 0}
 		} else if keyboard_check_pressed(vk_enter) {
 			//ok do something
-			switch (cursor_item)
+			cursor_string = ds_list_find_value(listMenu,cursor_item)
+			switch (cursor_string)
 			{
-				case 2: game_end() break;
-				case 1: room_goto(rMap)
+				case "Quit Game": game_end() break;
+				case "Back to Hub": room_goto(rMap)
 				//unsolve the level
 				oGame.yPathComplete = false
 				oGame.levelComplete = false
@@ -26,7 +27,7 @@ if keyboard_check_pressed(vk_escape) {
 				//shut menu,
 				global.menuOn = false;
 				break;
-				case 0: default: //shut menu,
+				case "Resume": default: //shut menu,
 				global.menuOn = false;
 			}
 			
@@ -36,6 +37,16 @@ if keyboard_check_pressed(vk_escape) {
 	if keyboard_check_pressed(vk_escape) {
 		//open menu
 		global.menuOn = true
+		//refresh possible menu
+		ds_list_clear(listMenu)
+		ds_list_add(listMenu,"Resume")
+		if room != rMap {
+			ds_list_add(listMenu,"Back to Hub")
+		}
+		ds_list_add(listMenu,"Quit Game")
+		menu_items = ds_list_size(listMenu)
+		//show_debug_message(string(ds_list_size(listMenu)))
+		cursor_item = 0
 	}
 }
 

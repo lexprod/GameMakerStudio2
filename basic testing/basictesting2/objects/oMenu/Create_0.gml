@@ -18,11 +18,13 @@ menu_y2 = gui_height - gui_height_margin
 menu_font = fMenu
 menu_itemheight = font_get_size(fMenu)
 
+
+listMenu = ds_list_create()
 //menu array
-pauseMenu[2] = "Quit Game"
-pauseMenu[1] = "Back to Hub"
-pauseMenu[0] = "Resume"
+//pauseMenu[2] = "Quit Game"
+//pauseMenu[1] = "Back to Hub"
+//pauseMenu[0] = "Resume"
 
 
-menu_items = array_length_1d(pauseMenu)
+//menu_items = array_length_1d(pauseMenu)
 cursor_item = 0

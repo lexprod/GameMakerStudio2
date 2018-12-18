@@ -1,12 +1,14 @@
 //loads the garden from save
-show_debug_message("I'm laoding a garden in room "+ string(room))
+show_debug_message("I'm laoding a garden in room "+ string(room_get_name(room)))
 
 //based on the room we're loading, make that file save name
 
-var levelsavename = "garden" + string(room) + ".lvl"
+var levelsavename = "garden" + string(room_get_name(room)) + ".lvl"
 
 //will save the garden grid to an ini
 if (file_exists(levelsavename)) {
+	
+		
 	ini_open(levelsavename)
 	
 	//hey lets check the garden size
@@ -55,13 +57,14 @@ if (file_exists(levelsavename)) {
 						gatelocked = glock
 					}
 				}
-			}
+			} 
 		}
 	}
 	ini_close()
 }
 
 if !instance_exists(oGoat) {
+	//show_debug_message("im birthing a goat")
 	instance_create_layer(gridsize*1,gridsize*1,"Goat",oGoat)
 }
 				//if the goat and a start tile exist, put the goat on it I guessss
@@ -77,8 +80,13 @@ if instance_exists(oStartY) {
 	goatfriend.rightx = start.x + gridsize
 	goatfriend.upy = start.y - gridsize
 	goatfriend.downy = start.y + gridsize
-	
+} 
+
+//and assign gates
+if instance_exists(oGate) {
+	loadGates(room)	
 }
+
 
 
 

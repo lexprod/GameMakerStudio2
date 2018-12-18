@@ -15,7 +15,7 @@ if global.menuOn {
 	//show_debug_message(string(menu_y_txt))
 	for (var i = 0 ; i < menu_items; i++) {
 		//var offset = 2
-		var txt = pauseMenu[i];
+		var txt = ds_list_find_value(listMenu,i);
 		//is this the selected item?
 		if (cursor_item == i) {
 			//add dashes to this line

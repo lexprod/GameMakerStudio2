@@ -3,3 +3,4 @@
 gatelocked = true
 solidobj = true
 targetroomindex = 0
+targetgarden = "rMap"

@@ -55,7 +55,7 @@ if (file_exists(_filename))
 			if asset_get_index(_obj) == oGate 
 			{
 				gatelocked = _map[? "locked"];
-				targetroomindex = _map[? "targetroom"];
+				targetgarden = _map[? "targetroom"];
 			} else if asset_get_index(_obj) == oTile 
 			{
 			//tiles

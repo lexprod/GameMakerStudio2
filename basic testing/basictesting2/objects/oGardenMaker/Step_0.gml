@@ -14,7 +14,7 @@ if oGame.debugOn {
 		currentchoice = 0
 		OverX = 0
 		OverY = 0
-		saveGarden();
+		saveGarden(currentGarden);
 	}
 }
 

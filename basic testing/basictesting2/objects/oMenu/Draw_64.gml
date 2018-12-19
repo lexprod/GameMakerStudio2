@@ -32,3 +32,5 @@ if global.menuOn {
 		draw_text(xx,yy,txt);
 	}
 }
+
+draw_text(100,100,RoomToString(room));

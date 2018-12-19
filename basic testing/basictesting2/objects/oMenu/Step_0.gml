@@ -17,7 +17,9 @@ if keyboard_check_pressed(vk_escape) {
 			switch (cursor_string)
 			{
 				case "Quit Game": game_end() break;
-				case "Back to Hub": room_goto(rMap)
+				case "Back to Hub": 
+				room_goto(rMap)
+				loadGarden("rMap")
 				//unsolve the level
 				oGame.yPathComplete = false
 				oGame.levelComplete = false

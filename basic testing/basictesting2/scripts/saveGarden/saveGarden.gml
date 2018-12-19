@@ -11,7 +11,7 @@ if (file_exists(levelsavename)) {
 ini_open(levelsavename)
 
 //might as well label the room inside the file too?
-ini_write_real("garden name","room",room)
+ini_write_real("garden name","room",string(room_get_name(room)))
 //save the size
 ini_write_real("gardensize","width",gardenwidth)
 ini_write_real("gardensize","height",gardenheight)

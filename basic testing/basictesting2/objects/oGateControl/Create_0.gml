@@ -19,8 +19,8 @@ gatedata[3,2] = "r0"
 gatedata[3,1] = "rMap"
 gatedata[3,0] = "rHall3"
 
-gatedata[2,3] = "r3"
-gatedata[2,2] = "r2"
+gatedata[2,3] = "r7"
+gatedata[2,2] = "r7"
 gatedata[2,1] = "rMap"
 gatedata[2,0] = "rHall2"
 

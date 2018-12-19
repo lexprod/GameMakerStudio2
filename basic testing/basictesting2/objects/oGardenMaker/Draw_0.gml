@@ -1,6 +1,10 @@
 /// @description draw flowers
 // go through the whole array
 
+draw_set_font(fBasic)
+draw_set_color(c_black)
+draw_text(200,100,currentGarden)
+
 
 // instead of drawing sprites, we'll spawn obj
 if editing {

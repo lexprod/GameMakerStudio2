@@ -22,11 +22,11 @@ if string_letters(garName) == "r" {
 	realRoom = real(string_digits(garName))
 	//each room has a hall its associated with
 	if realRoom <=6 {
-		//0 and 1 go to hall1
-		destGar = rHall1
+		//0 thru 6 go to hall1
+		destGar = "rHall1"
 	} else if realRoom <=7 {
-		//room 2 and 3 go to hall2
-		destGar = rHall2
+		//room 7 go to hall2
+		destGar = "rHall2"
 	} //otherwise, it stays rmap
 	for (i = 0; i < instance_number(oGate); i += 1) {
 		//now all gates lead to that dest
@@ -44,7 +44,7 @@ if string_letters(garName) == "r" {
 		}
 	}
 	//for each gate, use that roow to  set the destingations
-	show_debug_message("I think there are " + string(instance_number(oGate)) + " gates")
+	//show_debug_message("I think there are " + string(instance_number(oGate)) + " gates")
 	for (g = 0; g < instance_number(oGate); g += 1) {
 		//find destination
 		destGar = oGateControl.gatedata[gatedatarow,g+1]

@@ -212,5 +212,7 @@ mouseOver = false
 OverX = 0
 OverY = 0
 
+currentGarden = "rMap"
 
+loadGarden(currentGarden)
 

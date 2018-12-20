@@ -71,6 +71,14 @@
             }
         },
         {
+            "Key": "1394f2d9-e304-4d1b-8015-5c0596d4629d",
+            "Value": {
+                "id": "c25a3b95-a045-4180-913e-fd6611c84469",
+                "resourcePath": "rooms\\rPuzzleGarden\\rPuzzleGarden.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "17d2be67-ab77-4b71-a03e-4dba134a5614",
             "Value": {
                 "id": "6722d1fa-51e1-403e-af95-66b98f91d79c",
@@ -100,6 +108,14 @@
                 "id": "7f395f1e-328a-44c9-9494-fa6b3eb7914b",
                 "resourcePath": "scripts\\MouseOn\\MouseOn.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "251cb8cc-f763-45e6-9678-123c4d3f62a1",
+            "Value": {
+                "id": "ce9cfca8-fd1a-43d4-902a-3bbb5cd3e131",
+                "resourcePath": "rooms\\r6\\r6.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
@@ -148,6 +164,14 @@
                 "id": "5fa505e1-b7f7-4af8-b48b-f774f4bd5bbc",
                 "resourcePath": "fonts\\fBasic\\fBasic.yy",
                 "resourceType": "GMFont"
+            }
+        },
+        {
+            "Key": "3fc83a67-a45a-4447-aea5-6e63972d0453",
+            "Value": {
+                "id": "00a7d097-513e-4cee-a113-dcbe234919fb",
+                "resourcePath": "scripts\\RoomToString\\RoomToString.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -455,6 +479,14 @@
             }
         },
         {
+            "Key": "b1a4f33a-6547-4cff-b8ce-a2ac01dac3a6",
+            "Value": {
+                "id": "8e16aa36-d00b-4f0e-b0a8-14938e9e9348",
+                "resourcePath": "rooms\\r5\\r5.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "b1ab6594-b98c-4fd2-a6f7-2fcea0cdf155",
             "Value": {
                 "id": "d528ad10-8b78-4341-b32c-4a4826ccb75c",
@@ -591,6 +623,14 @@
             }
         },
         {
+            "Key": "e9f5d833-2402-4ef0-9f13-862cfc201600",
+            "Value": {
+                "id": "853cde3d-22f5-441a-ad92-a5395bb49728",
+                "resourcePath": "rooms\\r4\\r4.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "f1650e48-5fe1-4f9b-96c0-41200e817e58",
             "Value": {
                 "id": "fd93f59e-6fa4-4530-83f7-3595d4da5b7d",
@@ -669,7 +709,8 @@
         "86516a33-4698-49bd-9c3d-15ff6458ec94",
         "72c0cf53-a567-4242-a553-fa89b1ad7846",
         "a3398e88-08ca-4da1-bc56-fe8e4784bdff",
-        "5a65e2f0-6037-48fd-bebc-8335e87dd658"
+        "5a65e2f0-6037-48fd-bebc-8335e87dd658",
+        "3fc83a67-a45a-4447-aea5-6e63972d0453"
     ],
     "tutorial": ""
 }

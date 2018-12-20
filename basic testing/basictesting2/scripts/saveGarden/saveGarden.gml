@@ -1,7 +1,11 @@
 //will save the garden grid to an ini
+/// @arg garden to load
+
+var gardenname = argument0
+//what if something besides room name determined garden name? that way I dont need empty rooms...
 
 
-var levelsavename = "garden" + string(room_get_name(room)) + ".lvl"
+var levelsavename = "garden" + gardenname + ".lvl"
 
 
 if (file_exists(levelsavename)) {
@@ -11,7 +15,7 @@ if (file_exists(levelsavename)) {
 ini_open(levelsavename)
 
 //might as well label the room inside the file too?
-ini_write_real("garden name","room",room)
+ini_write_string("garden name","room",string(room_get_name(room)))
 //save the size
 ini_write_real("gardensize","width",gardenwidth)
 ini_write_real("gardensize","height",gardenheight)

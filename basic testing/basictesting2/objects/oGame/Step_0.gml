@@ -231,6 +231,13 @@ if oGardenMaker.editing == false {
 
 #region //ok so what if you are in charge of goat going through gates
 
+//for dumb reasons I need to wait a shole step
+			if RoomReady = true{
+				show_debug_message("room is ready")
+				loadGarden(gametargetgarden)
+				RoomReady = false
+			}
+			
 //wait until goat is done moving??
 if instance_exists(oGoat) and collision_point(oGoat.x,oGoat.y,oGate,false,false) and oGoat.state = GOAT_STATE.IDLE{
 	//show_debug_message("I touched a gate")
@@ -244,16 +251,22 @@ if instance_exists(oGoat) and collision_point(oGoat.x,oGoat.y,oGate,false,false)
 		
 		//what if we just made it persistent?
 		//room_instance_add(targetroomindex,gridsize*2,gridsize*2,oGardenMaker)
-		
+			
+			
+			
 			//this is to make sure you can still see the level editor in the room
 			//add that the goat wont start in the garden, with weird collision
 			//the goat will add itself to the goat layer
-			room_goto(targetroomindex)
+			if targetgarden == "rMap"{
+				room_goto(rMap)
+			} else {
+				room_goto(rPuzzleGarden)
+			}
+			oGame.RoomReady = true
+			oGame.gametargetgarden = targetgarden
 			
-		
-			//unsolve the level
-			other.yPathComplete = false
-			other.levelComplete = false
+			oGame.yPathComplete = false
+			oGame.levelComplete = false
 			
 			with oGame{
 				killAllSavs()

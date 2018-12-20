@@ -35,7 +35,7 @@ with (oGate) {
 	ds_map_add(_map, "solid", solidobj);
 	//gate
 	ds_map_add(_map, "locked", gatelocked);
-	ds_map_add(_map, "targetroom", targetroomindex);
+	ds_map_add(_map, "targetgarden", targetgarden);
 }
 
 //the tiles

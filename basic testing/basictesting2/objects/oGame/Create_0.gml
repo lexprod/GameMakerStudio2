@@ -16,12 +16,14 @@ yPathComplete = false
 levelComplete = false
 
 //spawn goat 1
-//instance_create_layer(gridsize*1,gridsize*1,"goat",oGoat)
+instance_create_layer(gridsize*1,gridsize*1,"goat",oGoat)
 
 movelist = 0
 
 
 killAllSavs()
 
+RoomReady = false
+gametargetgarden = rMap
 
 

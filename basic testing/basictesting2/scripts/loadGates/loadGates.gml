@@ -21,11 +21,11 @@ if string_letters(garName) == "r" {
 	//find out room number
 	realRoom = real(string_digits(garName))
 	//each room has a hall its associated with
-	if realRoom <=6 {
-		//0 thru 6 go to hall1
+	if realRoom <=9 {
+		//0 thru 9 go to hall1
 		destGar = "rHall1"
-	} else if realRoom <=7 {
-		//room 7 go to hall2
+	} else if realRoom <=19 {
+		//room 10 thru 19 hall2
 		destGar = "rHall2"
 	} //otherwise, it stays rmap
 	for (i = 0; i < instance_number(oGate); i += 1) {

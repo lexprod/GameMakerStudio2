@@ -14,9 +14,10 @@ show_debug_message("loading " + levelsavename)
 with oGardenMaker {
 	
 	//will save the garden grid to an ini
-	if (file_exists(levelsavename)) {
-		//this updates so the save knows what to save
+	//this updates so the save knows what to save
 		currentGarden = gardenname
+	if (file_exists(levelsavename)) {
+		
 		
 		ini_open(levelsavename)
 	

@@ -264,13 +264,9 @@ if instance_exists(oGoat) and collision_point(oGoat.x,oGoat.y,oGate,false,false)
 			}
 			oGame.RoomReady = true
 			oGame.gametargetgarden = targetgarden
-			//show_debug_message("I am in room" + RoomToString(room) + " and the targetgarden is " + targetgarden)
-			//hey instead here is where the graden stuff happens
-			//loadGarden(targetgarden)
 			
-			//unsolve the level
-			other.yPathComplete = false
-			other.levelComplete = false
+			oGame.yPathComplete = false
+			oGame.levelComplete = false
 			
 			with oGame{
 				killAllSavs()

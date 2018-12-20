@@ -1,8 +1,8 @@
 /// @description turn menu on and off
 if global.menuOn {
-if keyboard_check_pressed(vk_escape) {
-		//shut menu
-		global.menuOn = false
+	if keyboard_check_pressed(vk_escape) {
+			//shut menu
+			global.menuOn = false
 	} else {
 //key controls
 		if keyboard_check_pressed(vk_up) {
@@ -19,7 +19,10 @@ if keyboard_check_pressed(vk_escape) {
 				case "Quit Game": game_end() break;
 				case "Back to Hub": 
 				room_goto(rMap)
-				loadGarden("rMap")
+				oGame.RoomReady = true
+				oGame.gametargetgarden = "rMap"
+				
+				//loadGarden("rMap")
 				//unsolve the level
 				oGame.yPathComplete = false
 				oGame.levelComplete = false

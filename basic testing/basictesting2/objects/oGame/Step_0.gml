@@ -236,6 +236,10 @@ if oGardenMaker.editing == false {
 				show_debug_message("room is ready")
 				loadGarden(gametargetgarden)
 				RoomReady = false
+				//now do pretty stuff
+				if instance_exists(oCamControl){
+					newRoomCam()
+				}
 			}
 			
 //wait until goat is done moving??

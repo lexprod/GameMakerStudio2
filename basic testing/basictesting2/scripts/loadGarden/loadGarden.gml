@@ -8,7 +8,7 @@ show_debug_message("I'm laoding  garden " + gardenname + " in room "+ string(roo
 //based on the room we're loading, make that file save name
 
 var levelsavename = "garden" + gardenname + ".lvl"
-show_debug_message("loading " + levelsavename)
+//show_debug_message("loading " + levelsavename)
 
 //gardenmaker needs to do this
 with oGardenMaker {
@@ -94,7 +94,7 @@ with oGardenMaker {
 
 	//and assign gates
 	if instance_exists(oGate) {
-		show_debug_message("loadGardensays there are " + string(instance_number(oGate)) + " gates" )
+		//show_debug_message("loadGardensays there are " + string(instance_number(oGate)) + " gates" )
 		loadGates(gardenname)	
 	}
 }

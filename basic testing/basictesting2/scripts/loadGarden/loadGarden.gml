@@ -99,6 +99,12 @@ with oGardenMaker {
 	}
 }
 
+//hey new cam plz
+//now do pretty stuff
+if instance_exists(oCamControl){
+	newRoomCam()
+}
+
 
 
 

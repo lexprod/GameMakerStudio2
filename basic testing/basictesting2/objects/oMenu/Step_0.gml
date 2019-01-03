@@ -20,6 +20,7 @@ if global.menuOn {
 				case "Back to Hub": 
 				room_goto(rMap)
 				oGame.RoomReady = true
+				oGame.GardenTransition = true
 				oGame.gametargetgarden = "rMap"
 				
 				//loadGarden("rMap")

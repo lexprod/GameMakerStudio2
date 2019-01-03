@@ -8,7 +8,7 @@ debugOn = true
 instance_create_layer(0,0,"Instances",oMenu)
 //and camcontrol for zoomies and fullscreenm
 
-//	instance_create_layer(0,0,"Instances",oCamControl)
+	instance_create_layer(0,0,"Instances",oCamControl)
 
 
 
@@ -29,5 +29,16 @@ killAllSavs()
 
 RoomReady = false
 gametargetgarden = rMap
+gateDestination = "rMap"
+
+//when true, we are doing level transitions
+GardenTransition = false
+GardenHidden = false
+
+//bush starts at bottom
+HideY = display_get_gui_height()
+TargetHideY = 0
+
+
 
 

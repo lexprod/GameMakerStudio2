@@ -231,12 +231,7 @@ if oGardenMaker.editing == false {
 
 #region //ok so what if you are in charge of goat going through gates
 
-//for dumb reasons I need to wait a shole step
-			if RoomReady = true{
-				show_debug_message("room is ready")
-				loadGarden(gametargetgarden)
-				RoomReady = false
-			}
+
 			
 //wait until goat is done moving??
 if instance_exists(oGoat) and collision_point(oGoat.x,oGoat.y,oGate,false,false) and oGoat.state = GOAT_STATE.IDLE{
@@ -246,60 +241,70 @@ if instance_exists(oGoat) and collision_point(oGoat.x,oGoat.y,oGate,false,false)
 	with (gatecol) {
 		//show_debug_message("checking lock")
 		if gatelocked == false {
-		//if its unlocked, GO
-		//show_debug_message("GO TO ROOM")
-		
-		//what if we just made it persistent?
-		//room_instance_add(targetroomindex,gridsize*2,gridsize*2,oGardenMaker)
-			
-			
-			
+			//it is time to move rooms
+			oGame.GardenTransition = true
+			oGame.gateDestination = targetgarden
 			//this is to make sure you can still see the level editor in the room
 			//add that the goat wont start in the garden, with weird collision
 			//the goat will add itself to the goat layer
-			if targetgarden == "rMap"{
-				room_goto(rMap)
-			} else {
-				room_goto(rPuzzleGarden)
-			}
-			oGame.RoomReady = true
-			oGame.gametargetgarden = targetgarden
 			
-			oGame.yPathComplete = false
-			oGame.levelComplete = false
 			
-			with oGame{
-				killAllSavs()
-			}
-			////dump the stack for undos
-			//other.movecount = 0
-			////this stack stores the filename of each and every save of each move holy cow
-			////FILO methodology
-			//ds_stack_clear(other.movelist);
-			
-			//movestodelete = true
-			////let's clear out any old undo saves just in case
-
-			////this will be a script in future maybe
-			////clear all undos
-			//while (movestodelete = true)
-			//{
-			//	var _file = file_find_first("*.sav", 0);
-			//	//if an empty string is returned, then we're done!
-			//	if _file == "" 
-			//	{
-			//		movestodelete = false
-			//	} else 
-			//	{
-			//		//otherwise, there's a .sav, kill it!
-			//		file_delete(_file)
-			//	}
-			//}
 		} else {
 			//show_debug_message("its locked")
 		}
 	}
 	
+}
+
+//hey if its transition timme, now we actually do stuff
+if GardenTransition {
+	
+	if GardenHidden {
+		//for dumb reasons I need to wait a shole step
+			if RoomReady {
+				show_debug_message("room is ready")
+				loadGarden(gametargetgarden)
+				RoomReady = false
+				
+				
+				GardenHidden = false
+				
+			} else {
+				//we're hidden, switch the rooms
+				if gateDestination == "rMap"{
+					room_goto(rMap)
+				} else {
+					room_goto(rPuzzleGarden)
+				}
+				RoomReady = true
+				gametargetgarden = gateDestination
+			
+				yPathComplete = false
+				levelComplete = false
+		
+				killAllSavs()
+			}
+		//bush hiding
+	} else {
+		if TargetHideY == 0 {
+			HideY -= max(abs(TargetHideY - HideY) / 10, 20)
+			if HideY <= TargetHideY {
+				HideY = TargetHideY
+				TargetHideY = display_get_gui_height()
+				GardenHidden = true
+			}
+		} else {
+			HideY += max(abs(TargetHideY - HideY) / 10, 20)
+			if HideY >= TargetHideY {
+				HideY = TargetHideY
+				TargetHideY = 0
+			//testing
+				GardenTransition = false
+			}
+		}
+		//turn off...I mean eventually
+				
+	}
 }
 #endregion
 

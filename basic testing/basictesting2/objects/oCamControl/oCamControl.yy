@@ -1,48 +1,28 @@
 {
-    "id": "285210a1-8261-4cf7-ba3f-2e164e4ef362",
+    "id": "6d1eaebb-c646-43cc-9755-d9dac3423b6b",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "oGame",
+    "name": "oCamControl",
     "eventList": [
         {
-            "id": "b811b720-46c6-46dd-97a1-609e081a2f9a",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "285210a1-8261-4cf7-ba3f-2e164e4ef362"
-        },
-        {
-            "id": "8e3a07bb-3daf-40ec-b82e-07636c8c9ddd",
+            "id": "341037f3-d38b-4cd3-82f8-ae268872f5e9",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "285210a1-8261-4cf7-ba3f-2e164e4ef362"
+            "m_owner": "6d1eaebb-c646-43cc-9755-d9dac3423b6b"
         },
         {
-            "id": "2ce76673-6902-4e81-a58f-a4618ec44121",
+            "id": "a308416e-e950-4b74-9599-ae8422c1b741",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
-            "eventtype": 8,
-            "m_owner": "285210a1-8261-4cf7-ba3f-2e164e4ef362"
-        },
-        {
-            "id": "fd0ec733-7d23-42da-8408-53ae97fd5e82",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 64,
-            "eventtype": 8,
-            "m_owner": "285210a1-8261-4cf7-ba3f-2e164e4ef362"
+            "eventtype": 3,
+            "m_owner": "6d1eaebb-c646-43cc-9755-d9dac3423b6b"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",

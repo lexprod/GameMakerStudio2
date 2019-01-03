@@ -1,9 +1,9 @@
 /// @description draw flowers
 // go through the whole array
 
-draw_set_font(fBasic)
-draw_set_color(c_white)
-draw_text(600,600,currentGarden)
+//draw_set_font(fBasic)
+//draw_set_color(c_white)
+//draw_text(600,600,currentGarden)
 
 
 // instead of drawing sprites, we'll spawn obj

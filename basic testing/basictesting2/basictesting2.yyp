@@ -127,6 +127,14 @@
             }
         },
         {
+            "Key": "299c770d-f899-4aa5-9ce0-6df1b72fca33",
+            "Value": {
+                "id": "f55afd18-bfd8-4368-a59e-cb9184833ad6",
+                "resourcePath": "scripts\\moveToGarden\\moveToGarden.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2a75da93-1f11-4d4c-afbe-37d4c75f51d8",
             "Value": {
                 "id": "dba153f6-0b37-4299-a4fb-302d4d13e9c9",
@@ -255,6 +263,14 @@
             }
         },
         {
+            "Key": "6d1eaebb-c646-43cc-9755-d9dac3423b6b",
+            "Value": {
+                "id": "75cdc36e-aa25-4ad4-8066-461a0271325f",
+                "resourcePath": "objects\\oCamControl\\oCamControl.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7041e2e6-93f0-4556-b9c4-9677db631385",
             "Value": {
                 "id": "34ef4883-a372-44bb-b5eb-337fe7296c04",
@@ -364,6 +380,14 @@
                 "id": "a2bf620a-c457-4d87-8140-d25acf912582",
                 "resourcePath": "views\\928eaccf-c70b-42c9-9b5b-ada5616571c8.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "938ede31-6669-4d85-bd44-83f46a6eef9b",
+            "Value": {
+                "id": "dad19587-6170-4694-b2e7-999f2097d3cb",
+                "resourcePath": "scripts\\newRoomCam\\newRoomCam.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -615,6 +639,14 @@
             }
         },
         {
+            "Key": "e4fd2b8c-98b1-47b0-8634-a4028b24d5d7",
+            "Value": {
+                "id": "af154eeb-b90a-421f-a705-d69b8ed685fe",
+                "resourcePath": "sprites\\sHedgeHideLevel\\sHedgeHideLevel.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e884071e-3283-4886-9e44-2eb57ce1d419",
             "Value": {
                 "id": "54654695-5254-4da6-8d38-efe57fd76d9f",
@@ -710,7 +742,9 @@
         "72c0cf53-a567-4242-a553-fa89b1ad7846",
         "a3398e88-08ca-4da1-bc56-fe8e4784bdff",
         "5a65e2f0-6037-48fd-bebc-8335e87dd658",
-        "3fc83a67-a45a-4447-aea5-6e63972d0453"
+        "3fc83a67-a45a-4447-aea5-6e63972d0453",
+        "938ede31-6669-4d85-bd44-83f46a6eef9b",
+        "299c770d-f899-4aa5-9ce0-6df1b72fca33"
     ],
     "tutorial": ""
 }

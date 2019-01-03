@@ -4,3 +4,4 @@
 //these are basically non moving solid objects that are 
 //obstacles, player, tile, wagon, NOTHING is allowed on them
 solidobj = true
+
